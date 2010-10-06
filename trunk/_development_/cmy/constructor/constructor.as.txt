@@ -1,0 +1,7 @@
+public function CMY(c:Number, m:Number, y:Number) 
+{
+  this.toSelf = "toCMY";
+  this.c = c;
+  this.m = m;
+  this.y = y;
+}

@@ -1,0 +1,4 @@
+override public function toRGB():RGB 
+{
+  return this.toXYZ().toRGB();
+}

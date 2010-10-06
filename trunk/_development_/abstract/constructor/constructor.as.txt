@@ -1,0 +1,4 @@
+public function AbstractColor() 
+{
+  //throw new Error("You should not initiate this class directly!");
+}

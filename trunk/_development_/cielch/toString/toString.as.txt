@@ -1,0 +1,4 @@
+public function toString ():String
+{
+  return this.l + ','+this.c +','+this.h;
+}

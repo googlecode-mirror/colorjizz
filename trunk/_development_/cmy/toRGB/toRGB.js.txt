@@ -1,0 +1,6 @@
+toRGB : function (){
+  var R = ( 1 - this.c ) * 255;
+  var G = ( 1 - this.m ) * 255;
+  var B = ( 1 - this.y ) * 255;
+  return new RGB(R,G,B);
+}

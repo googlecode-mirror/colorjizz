@@ -1,0 +1,4 @@
+override public function toHex():Hex 
+{
+  return this.toCIELab().toHex();
+}

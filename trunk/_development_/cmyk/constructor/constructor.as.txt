@@ -1,0 +1,8 @@
+public function CMYK(c:Number, m:Number, y:Number, k:Number) 
+{
+  this.toSelf = "toCMYK";
+  this.c = c;
+  this.m = m;
+  this.y = y;
+  this.k = k;                     
+}

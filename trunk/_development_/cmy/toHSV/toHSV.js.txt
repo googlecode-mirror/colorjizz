@@ -1,0 +1,3 @@
+toCMY : function (){
+  return this.toRGB().toHSV();
+}

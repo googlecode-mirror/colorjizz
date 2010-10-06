@@ -1,0 +1,4 @@
+
+toHSV : function (){
+		return this.toRGB().toHSV();
+	}

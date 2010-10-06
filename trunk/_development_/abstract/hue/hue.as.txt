@@ -1,0 +1,6 @@
+public function hue(degreeModifier:Number):AbstractColor
+{
+  var a:CIELCh = this.toCIELCh();
+  a.h += degreeModifier;
+  return a[this.toSelf]();
+}

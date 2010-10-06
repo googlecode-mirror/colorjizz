@@ -1,0 +1,3 @@
+toCMYK : function (){
+		return this.toCIELab().toCMYK();
+	}

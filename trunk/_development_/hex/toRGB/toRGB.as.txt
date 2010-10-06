@@ -1,0 +1,7 @@
+override public function toRGB():RGB 
+{
+  var r:int = ((hex & 0xFF0000) >> 16);
+  var g:int = ((hex & 0x00FF00) >> 8);
+  var b:int = ((hex & 0x0000FF));
+  return new RGB(r,g,b);
+}

@@ -1,0 +1,36 @@
+override public function toHSV():HSV 
+{
+  var r:Number, g:Number, b:Number;
+  r = this.r/255;
+  g = this.g/255;
+  b = this.b/255;
+
+  var h:Number, s:Number, v:Number;
+  var min:Number, max:Number, delta:Number;
+
+  min = Math.min( r, g, b );
+  max = Math.max( r, g, b );
+
+  v = max;
+  delta = max - min;
+  if(max != 0){
+          s = delta / max;
+  }else {
+          s = 0;
+          h = -1;
+          return new HSV(h, s, v);
+  }
+  if (r == max) {
+          h = (g - b) / delta;
+  } else if( g == max){
+          h = 2 + (b - r) / delta;
+  }else{
+          h = 4 + (r - g) / delta;
+  }
+  h *= 60;
+  if(h < 0){
+          h += 360;
+  }
+
+  return new HSV(h, s*100, v*100);
+}

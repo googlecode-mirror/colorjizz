@@ -1,0 +1,7 @@
+override public function toRGB():RGB 
+{
+  var R:int = (int)(( 1 - this.c ) * 255);
+  var G:int = (int)(( 1 - this.m ) * 255);
+  var B:int = (int)(( 1 - this.y ) * 255);
+  return new RGB(R,G,B);
+}
