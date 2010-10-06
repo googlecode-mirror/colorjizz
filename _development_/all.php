@@ -99,6 +99,7 @@ function includeForLanguage($template, $lang){
 }
 includeForLanguage("JS.template", "js");
 includeForLanguage("AS.template", "as");
+includeForLanguage("PHP.template", "php");
 ?>
 </div>
 <input type="submit" name="submit" value="submit" class="submit" />
