@@ -1,0 +1,7 @@
+public function CIELCh(l:Number, c:Number, h:Number ) 
+{
+  this.toSelf = "toCIELCh";
+  this.l = l;
+  this.c = c;
+  this.h = h<360?h:(h-360);
+}

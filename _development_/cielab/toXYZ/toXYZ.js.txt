@@ -1,0 +1,29 @@
+toXYZ : function (){
+		var ref_X =  95.047;
+		var ref_Y = 100.000;
+		var ref_Z = 108.883;
+
+		var var_Y = (this.l + 16 ) / 116;
+		var var_X = this.a / 500 + var_Y;
+		var var_Z = var_Y - this.b / 200;
+
+		if (Math.pow(var_Y,3) > 0.008856){
+			var_Y = Math.pow(var_Y,3);
+		}else {
+			var_Y = (var_Y - 16 / 116) / 7.787;
+		}
+		if(Math.pow(var_X,3) > 0.008856){
+			var_X = Math.pow(var_X,3);
+		}else {
+			var_X = (var_X - 16 / 116) / 7.787;
+		}
+		if (Math.pow(var_Z,3) > 0.008856){
+			var_Z = Math.pow(var_Z,3);
+		}else {
+			var_Z = (var_Z - 16 / 116) / 7.787;
+		}
+		x = ref_X * var_X;
+		y = ref_Y * var_Y;
+		z = ref_Z * var_Z;
+		return new XYZ(x,y,z);
+	}

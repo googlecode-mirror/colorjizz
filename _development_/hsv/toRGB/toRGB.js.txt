@@ -1,0 +1,29 @@
+toRGB : function (){
+  if (this.s == 0)
+  {
+     var R = this.v * 255;
+     var G = this.v * 255;
+     var B = this.v * 255;
+  }
+  else
+  {
+     var_h = this.h * 6
+     if ( var_h == 6 ) var_h = 0;
+     var_i = Math.floor( var_h );
+     var_1 = this.v * ( 1 - this.s );
+     var_2 = this.v * ( 1 - this.s * ( var_h - var_i ) );
+     var_3 = this.v * ( 1 - this.s * ( 1 - ( var_h - var_i ) ) );
+
+     if      ( var_i == 0 ) { var_r = this.v     ; var_g = var_3 ; var_b = var_1 }
+     else if ( var_i == 1 ) { var_r = var_2 ; var_g = this.v     ; var_b = var_1 }
+     else if ( var_i == 2 ) { var_r = var_1 ; var_g = this.v     ; var_b = var_3 }
+     else if ( var_i == 3 ) { var_r = var_1 ; var_g = var_2 ; var_b = this.v     }
+     else if ( var_i == 4 ) { var_r = var_3 ; var_g = var_1 ; var_b = this.v     }
+     else                   { var_r = this.v     ; var_g = var_1 ; var_b = var_2 }
+
+     var R = var_r * 255;
+     var G = var_g * 255;
+     var B = var_b * 255;
+  }
+  return new RGB(R,G,B);
+}

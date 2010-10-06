@@ -1,0 +1,5 @@
+public function Hex(hex:uint) 
+{
+  this.hex = hex;
+  this.toSelf = "toHex";
+}

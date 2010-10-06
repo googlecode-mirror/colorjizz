@@ -1,0 +1,6 @@
+toCMY : function (){
+		var C = ( this.c * ( 1 - this.k ) + this.k );
+		var M = ( this.m * ( 1 - this.k ) + this.k );
+		var Y = ( this.y * ( 1 - this.k ) + this.k );
+		return new CMY(C,M,Y);
+	}

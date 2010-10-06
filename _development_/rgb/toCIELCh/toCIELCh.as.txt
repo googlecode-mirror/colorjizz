@@ -1,0 +1,4 @@
+override public function toCIELCh():CIELCh 
+{
+  return this.toCIELab().toCIELCh();
+}

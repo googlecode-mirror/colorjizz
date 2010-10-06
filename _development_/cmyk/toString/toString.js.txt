@@ -1,0 +1,3 @@
+toString : function (){
+		return this.c+','+this.m+','+this.y+','+this.k;
+	}

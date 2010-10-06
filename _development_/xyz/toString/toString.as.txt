@@ -1,0 +1,4 @@
+public function toString():String
+{
+  return this.x+','+this.y+','+this.z;
+}

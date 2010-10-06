@@ -1,0 +1,3 @@
+toCIELCh : function (){
+    return this;
+}

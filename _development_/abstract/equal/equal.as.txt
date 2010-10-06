@@ -1,0 +1,11 @@
+public function equal(parts:int, includeSelf:Boolean = false):Vector.<AbstractColor> {
+  if (parts < 2) parts = 2;
+  var current:CIELCh = this.toCIELCh();
+  var distance:Number = 360/parts;
+  var palette:Vector.<AbstractColor> = new Vector.<AbstractColor>();
+  if (includeSelf) palette.push(this);
+  for (var i:int=1; i<parts; i++){
+          palette.push(new CIELCh(current.l, current.c,current.h+(distance*i))[this.toSelf]());
+  }
+  return palette;
+}

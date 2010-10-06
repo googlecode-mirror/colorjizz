@@ -1,0 +1,10 @@
+toHex : function (){
+  var rgbcols = [this.r,this.g,this.b];
+  var hex = '';
+  for (i=0;i<rgbcols.length;i++){
+    var chara = "0123456789ABCDEF";
+    hex += chara.charAt(Math.floor(rgbcols[i] / 16)) + chara.charAt(rgbcols[i] - (Math.floor(rgbcols[i] / 16) * 16));
+  }
+
+  return new Hex(hex);
+}

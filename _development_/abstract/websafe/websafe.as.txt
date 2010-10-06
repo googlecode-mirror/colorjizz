@@ -1,0 +1,13 @@
+public function websafe():AbstractColor {
+
+  var c:Array = new Array('00','CC','33','66','99','FF');
+  var palette:Vector.<AbstractColor> = new Vector.<AbstractColor>();
+  for (var i:int = 0; i < 6; i++) {
+    for (var j:int = 0; j < 6; j++) {
+      for (var k:int = 0; k < 6; k++) {
+              palette.push(Hex.fromString(c[i]+c[j]+c[k]));
+      }
+    }
+  }                       
+  return this.match(palette);
+}

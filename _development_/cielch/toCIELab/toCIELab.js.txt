@@ -1,0 +1,7 @@
+toCIELab : function (){
+		var l = this.l;
+		var hradi = this.h * (Math.PI/180);
+		var a = Math.cos(hradi) * this.c;
+		var b = Math.sin(hradi) * this.c;
+		return new CIELab(l,a,b);
+	}

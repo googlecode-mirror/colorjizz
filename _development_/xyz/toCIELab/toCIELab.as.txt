@@ -1,0 +1,36 @@
+override public function toCIELab():CIELab 
+{
+  var Xn:Number =  95.047;
+  var Yn:Number = 100.000;
+  var Zn:Number = 108.883;
+
+  var x:Number = this.x / Xn;
+  var y:Number = this.y / Yn;
+  var z:Number = this.z / Zn;
+
+  if (x > 0.008856){
+          x = Math.pow(x, 1/3);
+  }else {
+          x = (7.787 * x) + (16 / 116);
+  }
+  if (y > 0.008856){
+          y = Math.pow(y, 1 / 3);
+  }else {
+          y = (7.787 * y) + (16 / 116);
+  }
+  if (z > 0.008856){
+          z = Math.pow(z, 1 / 3);
+  }else {
+          z = (7.787 * z) + (16 / 116);
+  }
+  var l:Number;
+  if (y>0.008856){
+          l = (116 * y) - 16;
+  }else {
+          l = 903.3*y;
+  }
+  var a:Number = 500 * (x - y);
+  var b:Number = 200 * (y - z);
+
+  return new CIELab(l, a, b);
+}

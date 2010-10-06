@@ -1,0 +1,36 @@
+toCIELab : function (){
+
+		var Xn =  95.047;
+		var Yn = 100.000;
+		var Zn = 108.883;
+
+		var x = this.x / Xn;
+		var y = this.y / Yn;
+		var z = this.z / Zn;
+
+		if (x > 0.008856){
+			x = Math.pow(x, 1/3);
+		}else {
+			x = (7.787 * x) + (16 / 116);
+		}
+		if (y > 0.008856){
+			y = Math.pow(y, 1 / 3);
+		}else {
+			y = (7.787 * y) + (16 / 116);
+		}
+		if (z > 0.008856){
+			z = Math.pow(z, 1 / 3);
+		}else {
+			z = (7.787 * z) + (16 / 116);
+		}
+
+		if (y>0.008856){
+			var l = (116 * y) - 16;
+		}else {
+			var l=903.3*y;
+		}
+		var a = 500 * (x - y);
+		var b = 200 * (y - z);
+
+		return new CIELab(l, a, b);
+	}

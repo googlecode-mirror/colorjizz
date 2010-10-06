@@ -1,0 +1,221 @@
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class AbstractColor 
+        {
+                public var toSelf:String;
+                ||abstract/constructor/constructor||
+                ||abstract/toHex/toHex||
+                ||abstract/toRGB/toRGB||
+                ||abstract/toXYZ/toXYZ||
+                ||abstract/toCIELab/toCIELab||
+                ||abstract/toCIELCh/toCIELCh||
+                ||abstract/toCMY/toCMY||
+                ||abstract/toCMYK/toCMYK||
+                ||abstract/toHSV/toHSV||
+                ||abstract/distance/distance||
+                ||abstract/websafe/websafe||
+                ||abstract/match/match||
+                ||abstract/equal/equal||
+                ||abstract/split/split||
+                ||abstract/analogous/analogous||
+                ||abstract/rectangle/rectangle||
+                ||abstract/range/range||
+                ||abstract/greyscale/greyscale||
+                ||abstract/hue/hue||
+                ||abstract/saturation/saturation||
+                ||abstract/brightness/brightness||
+        }
+
+}
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class Hex 
+        {
+                public var toSelf:String;
+                ||hex/constructor/constructor||
+                ||hex/toHex/toHex||
+                ||hex/toRGB/toRGB||
+                ||hex/toXYZ/toXYZ||
+                ||hex/toHSV/toHSV||
+                ||hex/toCMY/toCMY||
+                ||hex/toCMYK/toCMYK||
+                ||hex/toCIELab/toCIELab||
+                ||hex/toCIELCh/toCIELCh||
+                ||hex/toString/toString||
+        }
+
+}
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class RGB 
+        {
+                public var toSelf:String;
+                ||rgb/constructor/constructor||
+                ||rgb/toHex/toHex||
+                ||rgb/toRGB/toRGB||
+                ||rgb/toXYZ/toXYZ||
+                ||rgb/toHSV/toHSV||
+                ||rgb/toCMY/toCMY||
+                ||rgb/toCMYK/toCMYK||
+                ||rgb/toCIELab/toCIELab||
+                ||rgb/toCIELCh/toCIELCh||
+                ||rgb/toString/toString||
+        }
+
+}
+
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class HSV 
+        {
+                public var toSelf:String;
+                ||hsv/constructor/constructor||
+                ||hsv/toHex/toHex||
+                ||hsv/toRGB/toRGB||
+                ||hsv/toXYZ/toXYZ||
+                ||hsv/toHSV/toHSV||
+                ||hsv/toCMY/toCMY||
+                ||hsv/toCMYK/toCMYK||
+                ||hsv/toCIELab/toCIELab||
+                ||hsv/toCIELCh/toCIELCh||
+                ||hsv/toString/toString||
+        }
+
+}
+
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class CMY 
+        {
+                public var toSelf:String;
+                ||cmy/constructor/constructor||
+                ||cmy/toHex/toHex||
+                ||cmy/toRGB/toRGB||
+                ||cmy/toXYZ/toXYZ||
+                ||cmy/toHSV/toHSV||
+                ||cmy/toCMY/toCMY||
+                ||cmy/toCMYK/toCMYK||
+                ||cmy/toCIELab/toCIELab||
+                ||cmy/toCIELCh/toCIELCh||
+                ||cmy/toString/toString||
+        }
+
+}
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class CMYK
+        {
+                public var toSelf:String;
+                ||cmyk/constructor/constructor||
+                ||cmyk/toHex/toHex||
+                ||cmyk/toRGB/toRGB||
+                ||cmyk/toXYZ/toXYZ||
+                ||cmyk/toHSV/toHSV||
+                ||cmyk/toCMY/toCMY||
+                ||cmyk/toCMYK/toCMYK||
+                ||cmyk/toCIELab/toCIELab||
+                ||cmyk/toCIELCh/toCIELCh||
+                ||cmyk/toString/toString||
+        }
+
+}
+
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class XYZ
+        {
+                public var toSelf:String;
+                ||xyz/constructor/constructor||
+                ||xyz/toHex/toHex||
+                ||xyz/toRGB/toRGB||
+                ||xyz/toXYZ/toXYZ||
+                ||xyz/toHSV/toHSV||
+                ||xyz/toCMY/toCMY||
+                ||xyz/toCMYK/toCMYK||
+                ||xyz/toCIELab/toCIELab||
+                ||xyz/toCIELCh/toCIELCh||
+                ||xyz/toString/toString||
+        }
+
+}
+
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class CIELCh
+        {
+                public var toSelf:String;
+                ||cielch/constructor/constructor||
+                ||cielch/toHex/toHex||
+                ||cielch/toRGB/toRGB||
+                ||cielch/toXYZ/toXYZ||
+                ||cielch/toHSV/toHSV||
+                ||cielch/toCMY/toCMY||
+                ||cielch/toCMYK/toCMYK||
+                ||cielch/toCIELab/toCIELab||
+                ||cielch/toCIELCh/toCIELCh||
+                ||cielch/toString/toString||
+        }
+
+}
+
+package ColorUtils 
+{
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class CIELab
+        {
+                public var toSelf:String;
+                ||cielab/constructor/constructor||
+                ||cielab/toHex/toHex||
+                ||cielab/toRGB/toRGB||
+                ||cielab/toXYZ/toXYZ||
+                ||cielab/toHSV/toHSV||
+                ||cielab/toCMY/toCMY||
+                ||cielab/toCMYK/toCMYK||
+                ||cielab/toCIELab/toCIELab||
+                ||cielab/toCIELCh/toCIELCh||
+                ||cielab/toString/toString||
+        }
+
+}
