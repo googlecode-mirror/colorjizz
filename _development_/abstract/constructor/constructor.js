@@ -1,0 +1,2 @@
+
+constructor : function (){ this.warn(); }

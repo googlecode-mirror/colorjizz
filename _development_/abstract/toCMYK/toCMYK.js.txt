@@ -1,0 +1,2 @@
+
+toCMYK : function (){ this.warn(); }
