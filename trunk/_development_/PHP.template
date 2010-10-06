@@ -1,0 +1,169 @@
+<?php
+
+abstract class AbstractColor {
+
+    protected $toSelf;
+
+    ||abstract/constructor/constructor||
+    ||abstract/toHex/toHex||
+    ||abstract/toRGB/toRGB||
+    ||abstract/toXYZ/toXYZ||
+    ||abstract/toCIELab/toCIELab||
+    ||abstract/toCIELCh/toCIELCh||
+    ||abstract/toCMY/toCMY||
+    ||abstract/toCMYK/toCMYK||
+    ||abstract/toHSV/toHSV||
+    ||abstract/distance/distance||
+    ||abstract/websafe/websafe||
+    ||abstract/match/match||
+    ||abstract/equal/equal||
+    ||abstract/split/split||
+    ||abstract/analogous/analogous||
+    ||abstract/rectangle/rectangle||
+    ||abstract/range/range||
+    ||abstract/greyscale/greyscale||
+    ||abstract/hue/hue||
+    ||abstract/saturation/saturation||
+    ||abstract/brightness/brightness||
+}
+
+class Hex extends AbstractColor {
+    public $hex;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+
+}
+
+class RGB extends AbstractColor {
+    public $r;
+    public $g;
+    public $b;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+}
+
+class HSV extends AbstractColor {
+    public $h;
+    public $s;
+    public $v;
+    
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+}
+
+class CMY extends AbstractColor {
+    public $c;
+    public $m;
+    public $y;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+
+}
+
+class CMYK extends AbstractColor {
+    public $c;
+    public $m;
+    public $y;
+    public $k;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+}
+
+class XYZ extends AbstractColor {
+    public $x;
+    public $y;
+    public $z;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+}
+
+class CIELCh extends AbstractColor {
+    public $l;
+    public $c;
+    public $h;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+
+}
+
+class CIELab extends AbstractColor {
+    public $l;
+    public $a;
+    public $b;
+
+    ||hex/constructor/constructor||
+    ||hex/toHex/toHex||
+    ||hex/toRGB/toRGB||
+    ||hex/toXYZ/toXYZ||
+    ||hex/toHSV/toHSV||
+    ||hex/toCMY/toCMY||
+    ||hex/toCMYK/toCMYK||
+    ||hex/toCIELab/toCIELab||
+    ||hex/toCIELCh/toCIELCh||
+    ||hex/toString/toString||
+
+}
+
+

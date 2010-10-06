@@ -1,4 +1,3 @@
-
 public function analogous(includeSelf:Boolean = false):Vector.<AbstractColor>
 {                       
   var current:CIELCh = this.toCIELCh();
