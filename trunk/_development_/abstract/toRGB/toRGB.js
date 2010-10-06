@@ -1,0 +1,2 @@
+
+toRGB : function (){ this.warn(); }
