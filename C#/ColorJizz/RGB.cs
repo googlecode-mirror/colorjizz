@@ -35,7 +35,7 @@ namespace ColorJizz
             double tmp_b = this.b / 255;
             if (tmp_r > 0.04045)
             {
-                tmp_r = Math.Pow(((tmp_r + 0.055) / 1.055), 2.4);
+                tmp_r = Math.Pow((double)((double)tmp_r + 0.055) / 1.055, 2.4);
             }
             else
             {
@@ -43,7 +43,7 @@ namespace ColorJizz
             }
             if (tmp_g > 0.04045)
             {
-                tmp_g = Math.Pow(((tmp_g + 0.055) / 1.055), 2.4);
+                tmp_g = Math.Pow((double)((double)tmp_g + 0.055) / 1.055, 2.4);
             }
             else
             {
@@ -51,7 +51,7 @@ namespace ColorJizz
             }
             if (tmp_b > 0.04045)
             {
-                tmp_b = Math.Pow(((tmp_b + 0.055) / 1.055), 2.4);
+                tmp_b = Math.Pow((double)((double)tmp_b + 0.055) / 1.055, 2.4);
             }
             else
             {

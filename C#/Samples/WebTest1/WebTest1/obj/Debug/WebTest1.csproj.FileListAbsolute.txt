@@ -1,0 +1,7 @@
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\ResolveAssemblyReference.cache
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\bin\WebTest1.dll
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\bin\WebTest1.pdb
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\bin\ColorJizz.dll
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\bin\ColorJizz.pdb
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\WebTest1.dll
+D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\WebTest1.pdb
