@@ -1,0 +1,4 @@
+public override CIELab toCIELab()
+{
+    return this;
+}

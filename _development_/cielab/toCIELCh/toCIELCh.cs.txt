@@ -1,0 +1,19 @@
+public override CIELCh toCIELCh()
+{
+    double var_H = Math.Atan2(this.b, this.a);
+
+    if (var_H > 0)
+    {
+        var_H = (var_H / Math.PI) * 180;
+    }
+    else
+    {
+        var_H = 360 - (Math.Abs(var_H) / Math.PI) * 180;
+    }
+
+    double l = this.l;
+    double c = Math.Sqrt(Math.Pow(this.a, 2) + Math.Pow(this.b, 2));
+    double h = var_H;
+
+    return new CIELCh(l, c, h);
+}

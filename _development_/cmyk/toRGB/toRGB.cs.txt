@@ -1,0 +1,4 @@
+public override RGB toRGB()
+{
+    return this.toCMY().toRGB();
+}

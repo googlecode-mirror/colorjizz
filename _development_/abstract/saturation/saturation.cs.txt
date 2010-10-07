@@ -1,0 +1,7 @@
+public AbstractColor saturation(double satModifier)
+{
+    HSV a = this.toHSV();
+    a.s += (satModifier / 100);
+    a.s = Math.Min(1, Math.Max(0, a.s));
+    return a[this.toSelf];
+}

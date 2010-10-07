@@ -1,0 +1,7 @@
+public AbstractColor brightness(double brightnessModifier)
+{
+    HSV a = this.toHSV();
+    a.v += (brightnessModifier / 100);
+    a.v = Math.Min(100, Math.Max(0, a.v));
+    return a[this.toSelf];
+}

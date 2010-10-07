@@ -1,0 +1,10 @@
+public List<AbstractColor> split(bool includeSelf)
+{
+    CIELCh current = this.toCIELCh();
+    double distance = 150;
+    List<AbstractColor> rtn = new List<AbstractColor>();
+    rtn.Add(new CIELCh(current.l, current.c, current.h + distance)[this.toSelf]);
+    rtn.Add(new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]);
+    if (includeSelf) rtn.Insert(0, this);
+    return rtn;
+}

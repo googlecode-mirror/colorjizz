@@ -1,0 +1,4 @@
+public override String ToString()
+{
+    return String.Format("{0},{1},{2}", this.l, this.a, this.b);
+}

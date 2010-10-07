@@ -1,0 +1,4 @@
+public override string ToString()
+{
+    return this.hex.ToString("X").PadLeft(4, '0');
+}

@@ -1,0 +1,5 @@
+D:\wamp\www\colorjizz\C#\ColorJizz\obj\Debug\ResolveAssemblyReference.cache
+D:\wamp\www\colorjizz\C#\ColorJizz\bin\Debug\ColorJizz.dll
+D:\wamp\www\colorjizz\C#\ColorJizz\bin\Debug\ColorJizz.pdb
+D:\wamp\www\colorjizz\C#\ColorJizz\obj\Debug\ColorJizz.dll
+D:\wamp\www\colorjizz\C#\ColorJizz\obj\Debug\ColorJizz.pdb

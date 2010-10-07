@@ -1,0 +1,6 @@
+public double distance(AbstractColor destinationColor)
+{
+    CIELab a = this.toCIELab();
+    CIELab b = destinationColor.toCIELab();
+    return Math.Sqrt(Math.Pow(a.l - b.l, 2) + Math.Pow(a.a - b.a, 2) + Math.Pow(a.b - b.b, 2));
+}

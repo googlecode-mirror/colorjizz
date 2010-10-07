@@ -1,0 +1,6 @@
+public XYZ(double x, double y, double z)
+{
+    this.x = this.roundDec(x, 3);
+    this.y = this.roundDec(y, 3);
+    this.z = this.roundDec(z, 3);
+}

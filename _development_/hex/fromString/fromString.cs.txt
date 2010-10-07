@@ -1,0 +1,4 @@
+public static Hex fromString(string str)
+{
+    return null;
+}

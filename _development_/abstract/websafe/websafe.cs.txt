@@ -1,0 +1,17 @@
+public AbstractColor websafe()
+{
+
+    string[] c = new string[] { "00", "CC", "33", "66", "99", "FF" };
+    List<AbstractColor> palette = new List<AbstractColor>();
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            for (int k = 0; k < 6; k++)
+            {
+                palette.Add(Hex.fromString(c[i] + c[j] + c[k]));
+            }
+        }
+    }
+    return this.match(palette);
+}

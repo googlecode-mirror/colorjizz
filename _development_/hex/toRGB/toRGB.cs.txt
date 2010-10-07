@@ -1,0 +1,7 @@
+public override RGB toRGB()
+{
+int r = Convert.ToInt32((hex & 0xFF0000) >> 16);
+    int g = Convert.ToInt32((hex & 0x00FF00) >> 8);
+    int b = Convert.ToInt32((hex & 0x0000FF));
+return new RGB(r,g,b);
+}
