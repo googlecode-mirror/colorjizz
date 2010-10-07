@@ -1,4 +1,3 @@
 constructor : function (hex){
   this.hex = hex;
-  if (this.hex.substring(0,1) == '#') this.hex = this.hex.substring(1,7);
 }
