@@ -123,6 +123,8 @@ var Hex = AbstractColor.extend({
   ||hex/toCIELCh/toCIELCh||,
   ||hex/toString/toString||,
   toSelf  : "toHex"
+},{
+  ||hex/fromString/fromString||
 });
 
 var RGB = AbstractColor.extend({

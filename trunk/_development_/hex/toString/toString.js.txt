@@ -1,7 +1,3 @@
 toString: function () {
     return this.hex.toUpperCase();
-},
-fromString: function (str){
-    str = (str+'').replace(/[^a-f0-9]/gi, '');
-    return new Hex(parseInt(str, 16));
 }

@@ -3,8 +3,3 @@ public function toString()
     list($r, $g, $b) = str_split(dechex($this->hex),2);
     return strtoupper(hexdec($r).hexdec($g).hexdec($b));
 }
-public function fromString ($str)
-{
-    if (substr($str, 0, 1) == '#') $str = substr($str, 1, 6);
-    return new Hex(hexdec($str));
-}
