@@ -1,0 +1,45 @@
+public override HSV toHSV()
+{
+    double r, g, b;
+    r = this.r / 255;
+    g = this.g / 255;
+    b = this.b / 255;
+
+    double h, s, v;
+    double min, max, delta;
+
+    min = Math.Min(r, Math.Min(g, b));
+    max = Math.Max(r, Math.Min(g, b));
+
+    v = max;
+    delta = max - min;
+    if (max != 0)
+    {
+        s = delta / max;
+    }
+    else
+    {
+        s = 0;
+        h = -1;
+        return new HSV(h, s, v);
+    }
+    if (r == max)
+    {
+        h = (g - b) / delta;
+    }
+    else if (g == max)
+    {
+        h = 2 + (b - r) / delta;
+    }
+    else
+    {
+        h = 4 + (r - g) / delta;
+    }
+    h *= 60;
+    if (h < 0)
+    {
+        h += 360;
+    }
+
+    return new HSV(h, s * 100, v * 100);
+}

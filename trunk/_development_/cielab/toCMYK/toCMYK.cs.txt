@@ -1,0 +1,4 @@
+public override CMYK toCMYK()
+{
+    return this.toCMY().toCMYK();
+}

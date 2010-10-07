@@ -1,0 +1,7 @@
+public CMYK(double c, double m, double y, double k)
+{
+    this.c = c;
+    this.m = m;
+    this.y = y;
+    this.k = k;
+}

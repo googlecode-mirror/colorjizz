@@ -1,0 +1,15 @@
+public AbstractColor match(List<AbstractColor> palette)
+{
+    double distance = double.PositiveInfinity;
+    AbstractColor closest = null;
+    for (int i = 0; i < palette.Count; i++)
+    {
+        double cdistance = this.distance(palette[i]);
+        if (distance == double.PositiveInfinity || cdistance < distance)
+        {
+            distance = cdistance;
+            closest = palette[i];
+        }
+    }
+    return closest[this.toSelf];
+}

@@ -1,0 +1,6 @@
+public RGB(int r, int g, int b)
+{
+    this.r = Math.Min(255, Math.Max(r, 0));
+    this.g = Math.Min(255, Math.Max(g, 0));
+    this.b = Math.Min(255, Math.Max(b, 0));
+}

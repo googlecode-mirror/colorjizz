@@ -99,6 +99,7 @@ function includeForLanguage($template, $lang){
 }
 includeForLanguage("JS.template", "js");
 includeForLanguage("AS.template", "as");
+includeForLanguage("CS.template", "cs");
 includeForLanguage("PHP.template", "php");
 ?>
 </div>

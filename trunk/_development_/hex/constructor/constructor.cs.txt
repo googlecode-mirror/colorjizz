@@ -1,0 +1,4 @@
+public Hex(uint hex)
+{
+    this.hex = hex;
+}

@@ -1,0 +1,6 @@
+public AbstractColor hue(double degreeModifier)
+{
+    CIELCh a = this.toCIELCh();
+    a.h += degreeModifier;
+    return a[this.toSelf];
+}

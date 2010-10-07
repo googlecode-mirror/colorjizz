@@ -1,0 +1,4 @@
+public override XYZ toXYZ()
+{
+    return this.toRGB().toXYZ();
+}

@@ -1,0 +1,1 @@
+public abstract RGB toRGB();
