@@ -1,12 +1,20 @@
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
         public class AbstractColor 
         {
-                public var toSelf:String;
+                protected var toSelf:String;
                 ||abstract/constructor/constructor||
                 ||abstract/toHex/toHex||
                 ||abstract/toRGB/toRGB||
@@ -37,15 +45,23 @@ package ColorUtils
 
 }
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class Hex 
+        public class Hex extends AbstractColor
         {
-                public var toSelf:String;
+                public var hex:uint;
                 ||hex/constructor/constructor||
                 ||hex/toHex/toHex||
                 ||hex/toRGB/toRGB||
@@ -61,15 +77,25 @@ package ColorUtils
 
 }
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class RGB 
+        public class RGB extends AbstractColor
         {
-                public var toSelf:String;
+                public var r:int;
+                public var g:int;
+                public var b:int;
                 ||rgb/constructor/constructor||
                 ||rgb/toHex/toHex||
                 ||rgb/toRGB/toRGB||
@@ -85,15 +111,25 @@ package ColorUtils
 }
 
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class HSV 
+        public class HSV extends AbstractColor
         {
-                public var toSelf:String;
+                public var h:Number;
+                public var s:Number;
+                public var v:Number;
                 ||hsv/constructor/constructor||
                 ||hsv/toHex/toHex||
                 ||hsv/toRGB/toRGB||
@@ -109,15 +145,25 @@ package ColorUtils
 }
 
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class CMY 
+        public class CMY extends AbstractColor
         {
-                public var toSelf:String;
+                public var c:Number;
+                public var m:Number;
+                public var y:Number;
                 ||cmy/constructor/constructor||
                 ||cmy/toHex/toHex||
                 ||cmy/toRGB/toRGB||
@@ -132,15 +178,26 @@ package ColorUtils
 
 }
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class CMYK
+        public class CMYK extends AbstractColor
         {
-                public var toSelf:String;
+                public var c:Number;
+                public var m:Number;
+                public var y:Number;
+                public var k:Number;
                 ||cmyk/constructor/constructor||
                 ||cmyk/toHex/toHex||
                 ||cmyk/toRGB/toRGB||
@@ -156,15 +213,25 @@ package ColorUtils
 }
 
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class XYZ
+        public class XYZ extends AbstractColor
         {
-                public var toSelf:String;
+                public var x:Number;
+                public var y:Number;
+                public var z:Number;
                 ||xyz/constructor/constructor||
                 ||xyz/toHex/toHex||
                 ||xyz/toRGB/toRGB||
@@ -180,15 +247,25 @@ package ColorUtils
 }
 
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class CIELCh
+        public class CIELCh extends AbstractColor
         {
-                public var toSelf:String;
+                public var l:Number;
+                public var c:Number;
+                public var h:Number;
                 ||cielch/constructor/constructor||
                 ||cielch/toHex/toHex||
                 ||cielch/toRGB/toRGB||
@@ -203,15 +280,25 @@ package ColorUtils
 
 }
 
-package ColorUtils 
+package ColorJizz 
 {
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
         /**
          * ...
          * @author Mikee
          */
-        public class CIELab
+        public class CIELab extends AbstractColor
         {
-                public var toSelf:String;
+                public var l:Number;
+                public var a:Number;
+                public var b:Number;
                 ||cielab/constructor/constructor||
                 ||cielab/toHex/toHex||
                 ||cielab/toRGB/toRGB||
