@@ -1,0 +1,6 @@
+public function toCMY() {
+    $C = ($this->c * (1 - $this->k) + $this->k);
+    $M = ($this->m * (1 - $this->k) + $this->k);
+    $Y = ($this->y * (1 - $this->k) + $this->k);
+    return new CMY($C, $M, $Y);
+}

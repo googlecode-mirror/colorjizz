@@ -1,0 +1,6 @@
+public function greyscale() {
+    $a = $this->toRGB();
+    $ds = (max($a->r, $a->g, $a->b) + min($a->r, $a->g, $a->b)) / 2;
+    $t = new RGB($ds, $ds, $ds);
+    return call_user_func(array($t, $this->toSelf));
+}

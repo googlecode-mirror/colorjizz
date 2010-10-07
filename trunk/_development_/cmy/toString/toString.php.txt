@@ -1,0 +1,3 @@
+public function toString() {
+    return $this->c . ',' . $this->m . ',' . $this->y;
+}

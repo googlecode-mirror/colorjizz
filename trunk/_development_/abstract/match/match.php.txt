@@ -1,0 +1,12 @@
+public function match($palette) {
+    $distance = 100000000000;
+    $closest = null;
+    for ($i = 0; $i < count($palette); $i++) {
+        $cdistance = $this->distance($palette[$i]);
+        if ($distance == 100000000000 || $cdistance < $distance) {
+            $distance = $cdistance;
+            $closest = $palette[$i];
+        }
+    }
+    return call_user_func(array($closest, $this->toSelf));
+}

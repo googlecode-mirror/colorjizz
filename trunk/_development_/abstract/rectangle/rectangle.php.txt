@@ -1,0 +1,18 @@
+public function rectangle($sideLength, $includeSelf = false) {
+    $side1 = $sideLength;
+    $side2 = (360 - ($sideLength * 2)) / 2;
+    $current = $this->toCIELCh();
+    $rtn = array();
+
+    $t = new CIELCh($current->l, $current->c, $current->h + $side1);
+    $rtn[] = call_user_func(array($t, $this->toSelf));
+
+    $t = new CIELCh($current->l, $current->c, $current->h + $side1 + $side2);
+    $rtn[] = call_user_func(array($t, $this->toSelf));
+
+    $t = new CIELCh($current->l, $current->c, $current->h + $side1 + $side2 + $side1);
+    $rtn[] = call_user_func(array($t, $this->toSelf));
+
+    if ($includeSelf) array_unshift($rtn, $this);
+    return $rtn;
+}

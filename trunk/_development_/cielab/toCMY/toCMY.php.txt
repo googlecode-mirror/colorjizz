@@ -1,0 +1,3 @@
+public function toCMY() {
+    return $this->toRGB->toCMY();
+}

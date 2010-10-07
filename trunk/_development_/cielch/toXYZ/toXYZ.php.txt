@@ -1,0 +1,3 @@
+public function toXYZ() {
+    return $this->toCIELab()->toXYZ();
+}

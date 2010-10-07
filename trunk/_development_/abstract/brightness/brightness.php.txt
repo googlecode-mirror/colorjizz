@@ -1,0 +1,6 @@
+public function brightness($brightnessModifier) {
+    $a = $this->toHSV();
+    $a->v += ($brightnessModifier / 100);
+    $a->v = min(100, max(0, $a->v));
+    return call_user_func(array($a, $this->toSelf));
+}

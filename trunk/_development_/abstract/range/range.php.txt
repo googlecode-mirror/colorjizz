@@ -1,0 +1,21 @@
+public function range($destinationColor, $steps, $includeSelf = false) {
+    $a = $this->toRGB();
+    $b = $destinationColor->toRGB();
+    $colors = array();
+    $steps--;
+    $nr;
+    $ng;
+    $nb;
+    for ($n = 1; $n < $steps; $n++) {
+        $nr = floor($a->r + ($n * ($b->r - $a->r) / $steps));
+        $ng = floor($a->g + ($n * ($b->g - $a->g) / $steps));
+        $nb = floor($a->b + ($n * ($b->b - $a->b) / $steps));
+        $t = new RGB($nr, $ng, $nb);
+        $colors[] = call_user_func(array($t, $this->toSelf));
+    }
+    if ($includeSelf) {
+        array_unshift($colors, $this);
+        $colors[] = call_user_func(array($destinationColor, $this->toSelf));
+    }
+    return $colors;
+}
