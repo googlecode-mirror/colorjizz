@@ -1,0 +1,3 @@
+public function toCMYK() {
+    return $this->toCMY->toCMYK();
+}

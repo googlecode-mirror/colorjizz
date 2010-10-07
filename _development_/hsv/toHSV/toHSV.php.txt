@@ -1,0 +1,3 @@
+public function toHSV() {
+    return $this;
+}

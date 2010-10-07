@@ -1,0 +1,3 @@
+public function toRGB() {
+    return $this->toCIELab()->toRGB();
+}

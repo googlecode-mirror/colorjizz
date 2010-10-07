@@ -1,0 +1,6 @@
+public function HSV($h, $s, $v) {
+    $this->toSelf = "toHSV";
+    $this->h = $h;
+    $this->s = $s;
+    $this->v = $v;
+}

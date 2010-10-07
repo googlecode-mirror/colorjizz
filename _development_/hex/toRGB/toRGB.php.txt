@@ -1,0 +1,6 @@
+public function toRGB() {
+    $r = intval(substr($this->hex, 0, 2), 16);
+    $g = intval(substr($this->hex, 2, 2), 16);
+    $b = intval(substr($this->hex, 4, 2), 16);
+    return new RGB($r, $g, $b);
+}

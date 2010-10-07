@@ -28,6 +28,11 @@ package ColorUtils
                 ||abstract/hue/hue||
                 ||abstract/saturation/saturation||
                 ||abstract/brightness/brightness||
+                protected function roundDec(numIn:Number, decimalPlaces:int):Number {
+                  var nExp:int = Math.pow(10,decimalPlaces) ; 
+                  var nRetVal:Number = Math.round(numIn * nExp) / nExp
+                  return nRetVal;
+                }
         }
 
 }
