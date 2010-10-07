@@ -1,5 +1,4 @@
 public function Hex($hex) {
     $this->hex = $hex;
-    if (substr($this->hex, 0, 1) == '#') $this->hex = substr($this->hex, 1, 6);
     $this->toSelf = "toHex";
 }

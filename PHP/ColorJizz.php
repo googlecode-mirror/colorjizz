@@ -4,6 +4,7 @@ abstract class AbstractColor {
 
     protected $toSelf;
 
+
     abstract public function toHex();
 
     abstract public function toRGB();
@@ -174,7 +175,6 @@ class Hex extends AbstractColor {
 
     public function Hex($hex) {
         $this->hex = $hex;
-        if (substr($this->hex, 0, 1) == '#') $this->hex = substr($this->hex, 1, 6);
         $this->toSelf = "toHex";
     }
 
@@ -183,9 +183,9 @@ class Hex extends AbstractColor {
     }
 
     public function toRGB() {
-        $r = intval(substr($this->hex, 0, 2), 16);
-        $g = intval(substr($this->hex, 2, 2), 16);
-        $b = intval(substr($this->hex, 4, 2), 16);
+        $r = (($this->hex & 0xFF0000) >> 16);
+        $g = (($this->hex & 0x00FF00) >> 8);
+        $b = (($this->hex & 0x0000FF));
         return new RGB($r, $g, $b);
     }
 
@@ -214,7 +214,13 @@ class Hex extends AbstractColor {
     }
 
     public function toString() {
-        return strtoupper($this->hex);
+        list($r, $g, $b) = str_split(dechex($this->hex), 2);
+        return strtoupper(hexdec($r) . hexdec($g) . hexdec($b));
+    }
+
+    public function fromString($str) {
+        if (substr($str, 0, 1) == '#') $str = substr($str, 1, 6);
+        return new Hex(hexdec($str));
     }
 
 }
@@ -232,17 +238,10 @@ class RGB extends AbstractColor {
     }
 
     public function toHex() {
-        $r = floor($this->r);
-        $g = floor($this->g);
-        $b = floor($this->b);
-
-        $r = dechex($r < 0 ? 0 : ($r > 255 ? 255 : $r));
-        $g = dechex($g < 0 ? 0 : ($g > 255 ? 255 : $g));
-        $b = dechex($b < 0 ? 0 : ($b > 255 ? 255 : $b));
-        $color = (strlen($r) < 2 ? '0' : '') . $r;
-        $color .= (strlen($g) < 2 ? '0' : '') . $g;
-        $color .= (strlen($b) < 2 ? '0' : '') . $b;
-        return new Hex($color);
+        $hex = str_pad(dechex($this->r), 2, '0', STR_PAD_LEFT);
+        $hex .= str_pad(dechex($this->g), 2, '0', STR_PAD_LEFT);
+        $hex .= str_pad(dechex($this->b), 2, '0', STR_PAD_LEFT);
+        return Hex::fromString($hex);
     }
 
     public function toRGB() {
