@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ColorJizz
@@ -44,6 +44,7 @@ namespace ColorJizz
                 }
             }
         }
+
         public abstract Hex toHex();
         public abstract RGB toRGB();
         public abstract XYZ toXYZ();
@@ -191,3 +192,4 @@ namespace ColorJizz
         }
     }
 }
+

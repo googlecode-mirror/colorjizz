@@ -44,6 +44,12 @@ switch($language){
       file_put_contents("../AS3/src/ColorJizz/".$classes[$i-1].".as", $c);
     }
     break;
+  case "cs":
+    $x = explode("/*------------------*/", $contents);
+    for ($i=0; $i<sizeof($x); $i++){
+      file_put_contents("../C#/ColorJizz/".$classes[$i].".cs", $x[$i]);
+    }
+    break;
 
 }
 
