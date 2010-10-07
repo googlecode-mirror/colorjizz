@@ -264,11 +264,12 @@ var Hex = AbstractColor.extend({
     toString: function () {
         return this.hex.toUpperCase();
     },
+    toSelf: "toHex"
+}, {
     fromString: function (str) {
         str = (str + '').replace(/[^a-f0-9]/gi, '');
         return new Hex(parseInt(str, 16));
-    },
-    toSelf: "toHex"
+    }
 });
 
 var RGB = AbstractColor.extend({

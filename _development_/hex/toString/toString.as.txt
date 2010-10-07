@@ -2,10 +2,3 @@ public function toString ():String
 {
   return this.hex.toString(16).toUpperCase();
 }
-
-public static function fromString(str:String):Hex 
-{
-  if (str.substring(0, 1) == '#') str = str.substring(1, 7);
-  str = "0x" + str;
-  return new Hex(uint(str));
-}

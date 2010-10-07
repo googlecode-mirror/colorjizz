@@ -44,6 +44,7 @@ class Hex extends AbstractColor {
     ||hex/toCIELab/toCIELab||
     ||hex/toCIELCh/toCIELCh||
     ||hex/toString/toString||
+    ||hex/fromString/fromString||
 
 }
 
