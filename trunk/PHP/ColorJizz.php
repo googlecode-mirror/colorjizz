@@ -1,33 +1,6 @@
 <?php
 
-/***************************************************************
- *
- *  Twitter: @Mikeemoo
- *
- *  PHP ColorUtils
- *
- *  AS3 Version: http://code.google.com/p/colorutils-as3/
- *  JS Version: http://www.madebypi.co.uk/labs/colorutils/
- *
- *  Convert colors to different formats, find color harmonies
- *  match colors.etc.
- *
- *  Classes:
- *    AbstractColor, Hex, RGB, CMYK, CMY, XYZ, CIELab, CIELCh, HSV
- *
- *  $r = new RGB(100, 0, 0);
- *  $r->toXYZ()->toHex()->toCIELab()->toRGB();
- *
- *  var_dump($r->equal(10));
- *
- *  var_dump($r->range(new RGB(0,200,0), 10);
- *
- *  var_dump($r->analogous(true));
- *
- *
- **************************************************************/
-
- abstract class AbstractColor {
+abstract class AbstractColor {
 
     protected $toSelf;
 
@@ -148,9 +121,6 @@
         $b = $destinationColor->toRGB();
         $colors = array();
         $steps--;
-        $nr;
-        $ng;
-        $nb;
         for ($n = 1; $n < $steps; $n++) {
             $nr = floor($a->r + ($n * ($b->r - $a->r) / $steps));
             $ng = floor($a->g + ($n * ($b->g - $a->g) / $steps));
@@ -199,279 +169,6 @@
     }
 }
 
-
-class CIELab extends AbstractColor {
-    public $l;
-    public $a;
-    public $b;
-
-    public function CIELab($l, $a, $b) {
-        $this->toSelf = "toCIELab";
-        $this->l = $this->roundDec($l, 3);
-        $this->a = $this->roundDec($a, 3);
-        $this->b = $this->roundDec($b, 3);
-    }
-
-    public function toHex() {
-        return $this->toRGB()->toHex();
-    }
-
-    public function toRGB() {
-        return $this->toXYZ()->toRGB();
-    }
-
-    public function toXYZ() {
-        $ref_X = 95.047;
-        $ref_Y = 100.000;
-        $ref_Z = 108.883;
-
-        $var_Y = ($this->l + 16) / 116;
-        $var_X = $this->a / 500 + $var_Y;
-        $var_Z = $var_Y - $this->b / 200;
-
-        if (pow($var_Y, 3) > 0.008856) {
-            $var_Y = pow($var_Y, 3);
-        } else {
-            $var_Y = ($var_Y - 16 / 116) / 7.787;
-        }
-        if (pow($var_X, 3) > 0.008856) {
-            $var_X = pow($var_X, 3);
-        } else {
-            $var_X = ($var_X - 16 / 116) / 7.787;
-        }
-        if (pow($var_Z, 3) > 0.008856) {
-            $var_Z = pow($var_Z, 3);
-        } else {
-            $var_Z = ($var_Z - 16 / 116) / 7.787;
-        }
-        $x = $ref_X * $var_X;
-        $y = $ref_Y * $var_Y;
-        $z = $ref_Z * $var_Z;
-        return new XYZ($x, $y, $z);
-    }
-
-    public function toCIELab() {
-        return $this;
-    }
-
-    public function toHSV() {
-        return $this->toRGB->toHSV();
-    }
-
-    public function toCMY() {
-        return $this->toRGB->toCMY();
-    }
-
-    public function toCMYK() {
-        return $this->toCMY->toCMYK();
-    }
-
-    public function toCIELCh() {
-        $var_H = atan2($this->b, $this->a);
-
-        if ($var_H > 0) {
-            $var_H = ($var_H / pi()) * 180;
-        } else {
-            $var_H = 360 - (abs($var_H) / pi()) * 180;
-        }
-
-        $l = $this->l;
-        $c = sqrt(pow($this->a, 2) + pow($this->b, 2));
-        $h = $var_H;
-
-        return new CIELCh($l, $c, $h);
-    }
-
-    public function toString() {
-        return $this->l . ',' . $this->a . ',' . $this->b;
-    }
-
-}
-
-
-class CIELCh extends AbstractColor {
-    public $l;
-    public $c;
-    public $h;
-
-    public function CIELCh($l, $c, $h) {
-        $this->toSelf = "toCIELCh";
-        $this->l = $l;
-        $this->c = $c;
-        $this->h = $h < 360 ? $h : ($h - 360);
-    }
-
-    public function toHex() {
-        return $this->toCIELab()->toHex();
-    }
-
-    public function toRGB() {
-        return $this->toCIELab()->toRGB();
-    }
-
-    public function toXYZ() {
-        return $this->toCIELab()->toXYZ();
-    }
-
-    public function toCIELab() {
-        $l = $this->l;
-        $hradi = $this->h * (pi() / 180);
-        $a = cos($hradi) * $this->c;
-        $b = sin($hradi) * $this->c;
-        return new CIELab($l, $a, $b);
-    }
-
-    public function toHSV() {
-        return $this->toCIELab()->toHSV();
-    }
-
-    public function toCMY() {
-        return $this->toCIELab()->toCMY();
-    }
-
-    public function toCMYK() {
-        return $this->toCIELab()->toCMYK();
-    }
-
-    public function toCIELCh() {
-        return $this;
-    }
-
-    public function toString() {
-        return $this->l . ',' . $this->c . ',' . $this->h;
-    }
-
-}
-
-
-class CMY extends AbstractColor {
-    public $c;
-    public $m;
-    public $y;
-
-    public function CMY($c, $m, $y) {
-        $this->toSelf = "toCMY";
-        $this->c = $c;
-        $this->m = $m;
-        $this->y = $y;
-    }
-
-    public function toHex() {
-        return $this->toRGB()->toHex();
-    }
-
-    public function toRGB() {
-        $R = (int) ((1 - $this->c) * 255);
-        $G = (int) ((1 - $this->m) * 255);
-        $B = (int) ((1 - $this->y) * 255);
-        return new RGB($R, $G, $B);
-    }
-
-    public function toHSV() {
-        return $this->toRGB()->toHSV();
-    }
-
-    public function toXYZ() {
-        return $this->toRGB()->toXYZ();
-    }
-
-    public function toCIELab() {
-        return $this->toRGB()->toCIELab();
-    }
-
-    public function toCMY() {
-        return $this;
-    }
-
-    public function toCMYK() {
-        $var_K = 1;
-        $C = $this->c;
-        $M = $this->m;
-        $Y = $this->y;
-        if ($C < $var_K)   $var_K = $C;
-        if ($M < $var_K)   $var_K = $M;
-        if ($Y < $var_K)   $var_K = $Y;
-        if ($var_K == 1) {
-            $C = 0;
-            $M = 0;
-            $Y = 0;
-        }
-        else {
-            $C = ($C - $var_K) / (1 - $var_K);
-            $M = ($M - $var_K) / (1 - $var_K);
-            $Y = ($Y - $var_K) / (1 - $var_K);
-        }
-
-        $K = $var_K;
-
-        return new CMYK($C, $M, $Y, $K);
-    }
-
-    public function toCIELCh() {
-        return $this->toCIELab()->toCIELCh();
-    }
-
-    public function toString() {
-        return $this->c . ',' . $this->m . ',' . $this->y;
-    }
-
-}
-
-class CMYK extends AbstractColor {
-    public $c;
-    public $m;
-    public $y;
-    public $k;
-
-    public function CMYK($c, $m, $y, $k) {
-        $this->toSelf = "to";
-        $this->c = $c;
-        $this->m = $m;
-        $this->y = $y;
-        $this->k = $k;
-    }
-
-    public function toHex() {
-        return $this->toRGB()->toHex();
-    }
-
-    public function toRGB() {
-        return $this->toCMY()->toRGB();
-    }
-
-    public function toXYZ() {
-        return $this->toRGB()->toXYZ();
-    }
-
-    public function toHSV() {
-        return $this->toRGB()->toHSV();
-    }
-
-    public function toCIELab() {
-        return $this->toRGB()->toCIELab();
-    }
-
-    public function toCMY() {
-        $C = ($this->c * (1 - $this->k) + $this->k);
-        $M = ($this->m * (1 - $this->k) + $this->k);
-        $Y = ($this->y * (1 - $this->k) + $this->k);
-        return new CMY($C, $M, $Y);
-    }
-
-    public function toCMYK() {
-        return $this;
-    }
-
-    public function toCIELCh() {
-        return $this->toCIELab()->toCIELCh();
-    }
-
-    public function toString() {
-        return $this->c . ',' . $this->m . ',' . $this->y . ',' . $this->k;
-    }
-}
-
-
 class Hex extends AbstractColor {
     public $hex;
 
@@ -496,10 +193,6 @@ class Hex extends AbstractColor {
         return $this->toRGB()->toXYZ();
     }
 
-    public function toCIELab() {
-        return $this->toXYZ()->toCIELab();
-    }
-
     public function toHSV() {
         return $this->toRGB()->toHSV();
     }
@@ -512,6 +205,10 @@ class Hex extends AbstractColor {
         return $this->toCMY()->toCMYK();
     }
 
+    public function toCIELab() {
+        return $this->toXYZ()->toCIELab();
+    }
+
     public function toCIELCh() {
         return $this->toCIELab()->toCIELCh();
     }
@@ -522,6 +219,120 @@ class Hex extends AbstractColor {
 
 }
 
+class RGB extends AbstractColor {
+    public $r;
+    public $g;
+    public $b;
+
+    public function RGB($r, $g, $b) {
+        $this->toSelf = "toRGB";
+        $this->r = abs(min(255, max($r, 0)));
+        $this->g = abs(min(255, max($g, 0)));
+        $this->b = abs(min(255, max($b, 0)));
+    }
+
+    public function toHex() {
+        $r = floor($this->r);
+        $g = floor($this->g);
+        $b = floor($this->b);
+
+        $r = dechex($r < 0 ? 0 : ($r > 255 ? 255 : $r));
+        $g = dechex($g < 0 ? 0 : ($g > 255 ? 255 : $g));
+        $b = dechex($b < 0 ? 0 : ($b > 255 ? 255 : $b));
+        $color = (strlen($r) < 2 ? '0' : '') . $r;
+        $color .= (strlen($g) < 2 ? '0' : '') . $g;
+        $color .= (strlen($b) < 2 ? '0' : '') . $b;
+        return new Hex($color);
+    }
+
+    public function toRGB() {
+        return $this;
+    }
+
+    public function toXYZ() {
+        $tmp_r = $this->r / 255;
+        $tmp_g = $this->g / 255;
+        $tmp_b = $this->b / 255;
+        if ($tmp_r > 0.04045) {
+            $tmp_r = pow((($tmp_r + 0.055) / 1.055), 2.4);
+        } else {
+            $tmp_r = $tmp_r / 12.92;
+        }
+        if ($tmp_g > 0.04045) {
+            $tmp_g = pow((($tmp_g + 0.055) / 1.055), 2.4);
+        } else {
+            $tmp_g = $tmp_g / 12.92;
+        }
+        if ($tmp_b > 0.04045) {
+            $tmp_b = pow((($tmp_b + 0.055) / 1.055), 2.4);
+        } else {
+            $tmp_b = $tmp_b / 12.92;
+        }
+        $tmp_r = $tmp_r * 100;
+        $tmp_g = $tmp_g * 100;
+        $tmp_b = $tmp_b * 100;
+        $x = $tmp_r * 0.4124 + $tmp_g * 0.3576 + $tmp_b * 0.1805;
+        $y = $tmp_r * 0.2126 + $tmp_g * 0.7152 + $tmp_b * 0.0722;
+        $z = $tmp_r * 0.0193 + $tmp_g * 0.1192 + $tmp_b * 0.9505;
+        return new XYZ($x, $y, $z);
+    }
+
+    public function toHSV() {
+        $r = $this->r / 255;
+        $g = $this->g / 255;
+        $b = $this->b / 255;
+
+
+        $min = min($r, $g, $b);
+        $max = max($r, $g, $b);
+
+        $v = $max;
+        $delta = $max - $min;
+        if ($max != 0) {
+            $s = $delta / $max;
+        } else {
+            $s = 0;
+            $h = -1;
+            return new HSV($h, $s, $v);
+        }
+        if ($r == $max) {
+            $h = ($g - $b) / $delta;
+        } else if ($g == $max) {
+            $h = 2 + ($b - $r) / $delta;
+        } else {
+            $h = 4 + ($r - $g) / $delta;
+        }
+        $h *= 60;
+        if ($h < 0) {
+            $h += 360;
+        }
+
+        return new HSV($h, $s * 100, $v * 100);
+    }
+
+    public function toCMY() {
+        $C = 1 - ($this->r / 255);
+        $M = 1 - ($this->g / 255);
+        $Y = 1 - ($this->b / 255);
+        return new CMY($C, $M, $Y);
+    }
+
+    public function toCMYK() {
+        return $this->toCMY()->toCMYK();
+    }
+
+    public function toCIELab() {
+        return $this->toXYZ()->toCIELab();
+    }
+
+    public function toCIELCh() {
+        return $this->toCIELab()->toCIELCh();
+    }
+
+    public function toString() {
+        return $this->r . ',' . $this->g . ',' . $this->b;
+    }
+}
 
 class HSV extends AbstractColor {
     public $h;
@@ -588,7 +399,6 @@ class HSV extends AbstractColor {
                 $var_g = $var_1;
                 $var_b = $var_2;
             }
-            ;
 
             $r = $var_r * 255;
             $g = $var_g * 255;
@@ -599,10 +409,6 @@ class HSV extends AbstractColor {
 
     public function toXYZ() {
         return $this->toRGB()->toXYZ();
-    }
-
-    public function toCIELab() {
-        return $this->toRGB()->toCIELab();
     }
 
     public function toHSV() {
@@ -617,6 +423,10 @@ class HSV extends AbstractColor {
         return $this->toCMY()->toCMYK();
     }
 
+    public function toCIELab() {
+        return $this->toRGB()->toCIELab();
+    }
+
     public function toCIELCh() {
         return $this->toCIELab()->toCIELCh();
     }
@@ -624,114 +434,69 @@ class HSV extends AbstractColor {
     public function toString() {
         return $this->h . ',' . $this->s . ',' . $this->v;
     }
-
 }
 
+class CMY extends AbstractColor {
+    public $c;
+    public $m;
+    public $y;
 
-class RGB extends AbstractColor {
-    public $r;
-    public $g;
-    public $b;
-
-    public function RGB($r, $g, $b) {
-        $this->toSelf = "toRGB";
-        $this->r = abs(min(255, max($r, 0)));
-        $this->g = abs(min(255, max($g, 0)));
-        $this->b = abs(min(255, max($b, 0)));
+    public function CMY($c, $m, $y) {
+        $this->toSelf = "toCMY";
+        $this->c = $c;
+        $this->m = $m;
+        $this->y = $y;
     }
 
     public function toHex() {
-        $r = floor($this->r);
-        $g = floor($this->g);
-        $b = floor($this->b);
-
-        $r = dechex($r < 0 ? 0 : ($r > 255 ? 255 : $r));
-        $g = dechex($g < 0 ? 0 : ($g > 255 ? 255 : $g));
-        $b = dechex($b < 0 ? 0 : ($b > 255 ? 255 : $b));
-        $color = (strlen($r) < 2 ? '0' : '') . $r;
-        $color .= (strlen($g) < 2 ? '0' : '') . $g;
-        $color .= (strlen($b) < 2 ? '0' : '') . $b;
-        return new Hex($color);
+        return $this->toRGB()->toHex();
     }
 
     public function toRGB() {
-        return $this;
+        $R = (int) ((1 - $this->c) * 255);
+        $G = (int) ((1 - $this->m) * 255);
+        $B = (int) ((1 - $this->y) * 255);
+        return new RGB($R, $G, $B);
     }
 
     public function toXYZ() {
-        $tmp_r = $this->r / 255;
-        $tmp_g = $this->g / 255;
-        $tmp_b = $this->b / 255;
-        if ($tmp_r > 0.04045) {
-            $tmp_r = pow((($tmp_r + 0.055) / 1.055), 2.4);
-        } else {
-            $tmp_r = $tmp_r / 12.92;
-        }
-        if ($tmp_g > 0.04045) {
-            $tmp_g = pow((($tmp_g + 0.055) / 1.055), 2.4);
-        } else {
-            $tmp_g = $tmp_g / 12.92;
-        }
-        if ($tmp_b > 0.04045) {
-            $tmp_b = pow((($tmp_b + 0.055) / 1.055), 2.4);
-        } else {
-            $tmp_b = $tmp_b / 12.92;
-        }
-        $tmp_r = $tmp_r * 100;
-        $tmp_g = $tmp_g * 100;
-        $tmp_b = $tmp_b * 100;
-        $x = $tmp_r * 0.4124 + $tmp_g * 0.3576 + $tmp_b * 0.1805;
-        $y = $tmp_r * 0.2126 + $tmp_g * 0.7152 + $tmp_b * 0.0722;
-        $z = $tmp_r * 0.0193 + $tmp_g * 0.1192 + $tmp_b * 0.9505;
-        return new XYZ($x, $y, $z);
-    }
-
-    public function toCIELab() {
-        return $this->toXYZ()->toCIELab();
+        return $this->toRGB()->toXYZ();
     }
 
     public function toHSV() {
-        $r = $this->r / 255;
-        $g = $this->g / 255;
-        $b = $this->b / 255;
-
-
-        $min = min($r, $g, $b);
-        $max = max($r, $g, $b);
-
-        $v = $max;
-        $delta = $max - $min;
-        if ($max != 0) {
-            $s = $delta / $max;
-        } else {
-            $s = 0;
-            $h = -1;
-            return new HSV($h, $s, $v);
-        }
-        if ($r == $max) {
-            $h = ($g - $b) / $delta;
-        } else if ($g == $max) {
-            $h = 2 + ($b - $r) / $delta;
-        } else {
-            $h = 4 + ($r - $g) / $delta;
-        }
-        $h *= 60;
-        if ($h < 0) {
-            $h += 360;
-        }
-
-        return new HSV($h, $s * 100, $v * 100);
+        return $this->toRGB()->toHSV();
     }
 
     public function toCMY() {
-        $C = 1 - ($this->r / 255);
-        $M = 1 - ($this->g / 255);
-        $Y = 1 - ($this->b / 255);
-        return new CMY($C, $M, $Y);
+        return $this;
     }
 
     public function toCMYK() {
-        return $this->toCMY()->toCMYK();
+        $var_K = 1;
+        $C = $this->c;
+        $M = $this->m;
+        $Y = $this->y;
+        if ($C < $var_K)   $var_K = $C;
+        if ($M < $var_K)   $var_K = $M;
+        if ($Y < $var_K)   $var_K = $Y;
+        if ($var_K == 1) {
+            $C = 0;
+            $M = 0;
+            $Y = 0;
+        }
+        else {
+            $C = ($C - $var_K) / (1 - $var_K);
+            $M = ($M - $var_K) / (1 - $var_K);
+            $Y = ($Y - $var_K) / (1 - $var_K);
+        }
+
+        $K = $var_K;
+
+        return new CMYK($C, $M, $Y, $K);
+    }
+
+    public function toCIELab() {
+        return $this->toRGB()->toCIELab();
     }
 
     public function toCIELCh() {
@@ -739,10 +504,64 @@ class RGB extends AbstractColor {
     }
 
     public function toString() {
-        return $this->r . ',' . $this->g . ',' . $this->b;
+        return $this->c . ',' . $this->m . ',' . $this->y;
     }
+
 }
 
+class CMYK extends AbstractColor {
+    public $c;
+    public $m;
+    public $y;
+    public $k;
+
+    public function CMYK($c, $m, $y, $k) {
+        $this->toSelf = "to";
+        $this->c = $c;
+        $this->m = $m;
+        $this->y = $y;
+        $this->k = $k;
+    }
+
+    public function toHex() {
+        return $this->toRGB()->toHex();
+    }
+
+    public function toRGB() {
+        return $this->toCMY()->toRGB();
+    }
+
+    public function toXYZ() {
+        return $this->toRGB()->toXYZ();
+    }
+
+    public function toHSV() {
+        return $this->toRGB()->toHSV();
+    }
+
+    public function toCMY() {
+        $C = ($this->c * (1 - $this->k) + $this->k);
+        $M = ($this->m * (1 - $this->k) + $this->k);
+        $Y = ($this->y * (1 - $this->k) + $this->k);
+        return new CMY($C, $M, $Y);
+    }
+
+    public function toCMYK() {
+        return $this;
+    }
+
+    public function toCIELab() {
+        return $this->toRGB()->toCIELab();
+    }
+
+    public function toCIELCh() {
+        return $this->toCIELab()->toCIELCh();
+    }
+
+    public function toString() {
+        return $this->c . ',' . $this->m . ',' . $this->y . ',' . $this->k;
+    }
+}
 
 class XYZ extends AbstractColor {
     public $x;
@@ -795,6 +614,18 @@ class XYZ extends AbstractColor {
         return $this;
     }
 
+    public function toHSV() {
+        return $this->toRGB()->toHSV();
+    }
+
+    public function toCMY() {
+        return $this->toRGB()->toCMY();
+    }
+
+    public function toCMYK() {
+        return $this->toCMY()->toCMYK();
+    }
+
     public function toCIELab() {
         $Xn = 95.047;
         $Yn = 100.000;
@@ -819,7 +650,6 @@ class XYZ extends AbstractColor {
         } else {
             $z = (7.787 * $z) + (16 / 116);
         }
-        $l;
         if ($y > 0.008856) {
             $l = (116 * $y) - 16;
         } else {
@@ -831,18 +661,6 @@ class XYZ extends AbstractColor {
         return new CIELab($l, $a, $b);
     }
 
-    public function toHSV() {
-        return $this->toRGB()->toHSV();
-    }
-
-    public function toCMY() {
-        return $this->toRGB()->toCMY();
-    }
-
-    public function toCMYK() {
-        return $this->toCMY()->toCMYK();
-    }
-
     public function toCIELCh() {
         return $this->toCIELab()->toCIELCh();
     }
@@ -851,3 +669,146 @@ class XYZ extends AbstractColor {
         return $this->x . ',' . $this->y . ',' . $this->z;
     }
 }
+
+class CIELCh extends AbstractColor {
+    public $l;
+    public $c;
+    public $h;
+
+    public function CIELCh($l, $c, $h) {
+        $this->toSelf = "toCIELCh";
+        $this->l = $l;
+        $this->c = $c;
+        $this->h = $h < 360 ? $h : ($h - 360);
+    }
+
+    public function toHex() {
+        return $this->toCIELab()->toHex();
+    }
+
+    public function toRGB() {
+        return $this->toCIELab()->toRGB();
+    }
+
+    public function toXYZ() {
+        return $this->toCIELab()->toXYZ();
+    }
+
+    public function toHSV() {
+        return $this->toCIELab()->toHSV();
+    }
+
+    public function toCMY() {
+        return $this->toCIELab()->toCMY();
+    }
+
+    public function toCMYK() {
+        return $this->toCIELab()->toCMYK();
+    }
+
+    public function toCIELab() {
+        $l = $this->l;
+        $hradi = $this->h * (pi() / 180);
+        $a = cos($hradi) * $this->c;
+        $b = sin($hradi) * $this->c;
+        return new CIELab($l, $a, $b);
+    }
+
+    public function toCIELCh() {
+        return $this;
+    }
+
+    public function toString() {
+        return $this->l . ',' . $this->c . ',' . $this->h;
+    }
+
+}
+
+class CIELab extends AbstractColor {
+    public $l;
+    public $a;
+    public $b;
+
+    public function CIELab($l, $a, $b) {
+        $this->toSelf = "toCIELab";
+        $this->l = $this->roundDec($l, 3);
+        $this->a = $this->roundDec($a, 3);
+        $this->b = $this->roundDec($b, 3);
+    }
+
+    public function toHex() {
+        return $this->toRGB()->toHex();
+    }
+
+    public function toRGB() {
+        return $this->toXYZ()->toRGB();
+    }
+
+    public function toXYZ() {
+        $ref_X = 95.047;
+        $ref_Y = 100.000;
+        $ref_Z = 108.883;
+
+        $var_Y = ($this->l + 16) / 116;
+        $var_X = $this->a / 500 + $var_Y;
+        $var_Z = $var_Y - $this->b / 200;
+
+        if (pow($var_Y, 3) > 0.008856) {
+            $var_Y = pow($var_Y, 3);
+        } else {
+            $var_Y = ($var_Y - 16 / 116) / 7.787;
+        }
+        if (pow($var_X, 3) > 0.008856) {
+            $var_X = pow($var_X, 3);
+        } else {
+            $var_X = ($var_X - 16 / 116) / 7.787;
+        }
+        if (pow($var_Z, 3) > 0.008856) {
+            $var_Z = pow($var_Z, 3);
+        } else {
+            $var_Z = ($var_Z - 16 / 116) / 7.787;
+        }
+        $x = $ref_X * $var_X;
+        $y = $ref_Y * $var_Y;
+        $z = $ref_Z * $var_Z;
+        return new XYZ($x, $y, $z);
+    }
+
+    public function toHSV() {
+        return $this->toRGB->toHSV();
+    }
+
+    public function toCMY() {
+        return $this->toRGB->toCMY();
+    }
+
+    public function toCMYK() {
+        return $this->toCMY->toCMYK();
+    }
+
+    public function toCIELab() {
+        return $this;
+    }
+
+    public function toCIELCh() {
+        $var_H = atan2($this->b, $this->a);
+
+        if ($var_H > 0) {
+            $var_H = ($var_H / pi()) * 180;
+        } else {
+            $var_H = 360 - (abs($var_H) / pi()) * 180;
+        }
+
+        $l = $this->l;
+        $c = sqrt(pow($this->a, 2) + pow($this->b, 2));
+        $h = $var_H;
+
+        return new CIELCh($l, $c, $h);
+    }
+
+    public function toString() {
+        return $this->l . ',' . $this->a . ',' . $this->b;
+    }
+
+}
+

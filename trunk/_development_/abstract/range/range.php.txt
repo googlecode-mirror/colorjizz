@@ -3,9 +3,6 @@ public function range($destinationColor, $steps, $includeSelf = false) {
     $b = $destinationColor->toRGB();
     $colors = array();
     $steps--;
-    $nr;
-    $ng;
-    $nb;
     for ($n = 1; $n < $steps; $n++) {
         $nr = floor($a->r + ($n * ($b->r - $a->r) / $steps));
         $ng = floor($a->g + ($n * ($b->g - $a->g) / $steps));
