@@ -1,7 +1,7 @@
-﻿using System;
+
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ColorJizz
 {
@@ -10,7 +10,9 @@ namespace ColorJizz
         public double l;
         public double a;
         public double b;
+
         new protected ConversionMethod toSelf = ConversionMethod.toCIELab;
+
         public CIELab(double l, double a, double b)
         {
             this.l = l;

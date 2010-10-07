@@ -1,4 +1,6 @@
-﻿using System;
+
+
+using System;
 using System.Collections.Generic;
 
 namespace ColorJizz
@@ -11,18 +13,17 @@ namespace ColorJizz
 
         new protected ConversionMethod toSelf = ConversionMethod.toHSV;
 
+
         public HSV(double h, double s, double v)
         {
             this.h = h;
             this.s = s;
             this.v = v;
         }
-
         public override Hex toHex()
         {
             return this.toRGB().toHex();
         }
-
         public override RGB toRGB()
         {
             double h = this.h / 360;
@@ -68,7 +69,7 @@ namespace ColorJizz
                 {
                     var_r = var_1;
                     var_g = var_2;
-                    var_b = v; 
+                    var_b = v;
                 }
                 else if (var_i == 4)
                 {
@@ -89,32 +90,26 @@ namespace ColorJizz
             }
             return new RGB(Convert.ToInt32(Math.Round(r)), Convert.ToInt32(Math.Round(g)), Convert.ToInt32(Math.Round(b)));
         }
-
         public override XYZ toXYZ()
         {
             return this.toRGB().toXYZ();
         }
-
         public override HSV toHSV()
         {
             return this;
         }
-
         public override CMY toCMY()
         {
             return this.toRGB().toCMY();
         }
-
         public override CMYK toCMYK()
         {
             return this.toCMY().toCMYK();
         }
-
         public override CIELab toCIELab()
         {
             return this.toRGB().toCIELab();
         }
-
         public override CIELCh toCIELCh()
         {
             return this.toCIELab().toCIELCh();
@@ -124,5 +119,7 @@ namespace ColorJizz
             return String.Format("{0},{1},{2}", this.h, this.s, this.v);
         }
 
+
     }
 }
+
