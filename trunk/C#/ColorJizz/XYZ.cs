@@ -28,14 +28,13 @@ namespace ColorJizz
             double var_X = this.x / 100;
             double var_Y = this.y / 100;
             double var_Z = this.z / 100;
-
             double var_R = var_X * 3.2406 + var_Y * -1.5372 + var_Z * -0.4986;
             double var_G = var_X * -0.9689 + var_Y * 1.8758 + var_Z * 0.0415;
             double var_B = var_X * 0.0557 + var_Y * -0.2040 + var_Z * 1.0570;
 
             if (var_R > 0.0031308)
             {
-                var_R = 1.055 * Math.Pow(var_R, (1 / 2.4)) - 0.055;
+                var_R = 1.055 * Math.Pow(var_R, (double)1 / 2.4) - 0.055;
             }
             else
             {
@@ -43,7 +42,7 @@ namespace ColorJizz
             }
             if (var_G > 0.0031308)
             {
-                var_G = 1.055 * Math.Pow(var_G, (1 / 2.4)) - 0.055;
+                var_G = 1.055 * Math.Pow(var_G, (double)1 / 2.4) - 0.055;
             }
             else
             {
@@ -51,7 +50,7 @@ namespace ColorJizz
             }
             if (var_B > 0.0031308)
             {
-                var_B = 1.055 * Math.Pow(var_B, (1 / 2.4)) - 0.055;
+                var_B = 1.055 * Math.Pow(var_B, (double)1 / 2.4) - 0.055;
             }
             else
             {
@@ -91,7 +90,7 @@ namespace ColorJizz
 
             if (x > 0.008856)
             {
-                x = Math.Pow(x, 1 / 3);
+                x = Math.Pow(x, (double)1 / 3);
             }
             else
             {
@@ -99,7 +98,7 @@ namespace ColorJizz
             }
             if (y > 0.008856)
             {
-                y = Math.Pow(y, 1 / 3);
+                y = Math.Pow(y, (double)1 / 3);
             }
             else
             {
@@ -107,7 +106,7 @@ namespace ColorJizz
             }
             if (z > 0.008856)
             {
-                z = Math.Pow(z, 1 / 3);
+                z = Math.Pow(z, (double)1 / 3);
             }
             else
             {
@@ -124,6 +123,7 @@ namespace ColorJizz
             }
             double a = 500 * (x - y);
             double b = 200 * (y - z);
+
 
             return new CIELab(l, a, b);
         }

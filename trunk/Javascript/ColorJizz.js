@@ -262,7 +262,7 @@ var Hex = AbstractColor.extend({
         return this.toCIELab().toCIELCh();
     },
     toString: function () {
-        return this.hex.toUpperCase();
+        return this.hex.toString(16).toUpperCase();
     },
     toSelf: "toHex"
 }, {
@@ -288,6 +288,7 @@ var RGB = AbstractColor.extend({
         var tmp_r = this.r / 255;
         var tmp_g = this.g / 255;
         var tmp_b = this.b / 255;
+        console.log(tmp_r);
         if (tmp_r > 0.04045) {
             tmp_r = Math.pow(((tmp_r + 0.055) / 1.055), 2.4)
         } else {
@@ -603,7 +604,6 @@ var XYZ = AbstractColor.extend({
         var x = this.x / Xn;
         var y = this.y / Yn;
         var z = this.z / Zn;
-
         if (x > 0.008856) {
             x = Math.pow(x, 1 / 3);
         } else {
