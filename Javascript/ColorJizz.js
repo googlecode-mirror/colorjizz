@@ -15,8 +15,7 @@ Base.prototype = {
         var extend = Base.prototype.extend;
         if (arguments.length == 2) {
             var ancestor = this[source];
-            if ((ancestor instanceof Function) && (value instanceof Function) &&
-            ancestor.valueOf() != value.valueOf() && /\bbase\b/.test(value)) {
+            if ((ancestor instanceof Function) && (value instanceof Function) && ancestor.valueOf() != value.valueOf() && /\bbase\b/.test(value)) {
                 var method = value;
                 value = function () {
                     var previous = this.base;
@@ -53,8 +52,7 @@ Base.prototype = {
         }
         return this;
     },
-    base: function () {
-    }
+    base: function () {}
 };
 Base.extend = function (_instance, _static) {
     var extend = Base.prototype.extend;
@@ -135,7 +133,9 @@ var AbstractColor = Base.extend({
         var distance = null;
         var closest = null;
         for (var i = 0; i < palette.length; i++) {
+
             var cdistance = this.distance(palette[i]);
+
             if (distance == null || distance > cdistance) {
                 distance = cdistance;
                 closest = palette[i];
@@ -161,9 +161,7 @@ var AbstractColor = Base.extend({
         var current = this.toCIELCh();
         var distance = 150;
         var rtn = [
-        new CIELCh(current.l, current.c, current.h + distance)[this.toSelf](),
-        new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]()
-        ];
+        new CIELCh(current.l, current.c, current.h + distance)[this.toSelf](), new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]()];
         if (include) rtn.unshift(this);
         return rtn;
     },
@@ -172,9 +170,7 @@ var AbstractColor = Base.extend({
         var current = this.toCIELCh();
         var distance = 30;
         var rtn = [
-        new CIELCh(current.l, current.c, current.h + distance)[this.toSelf](),
-        new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]()
-        ];
+        new CIELCh(current.l, current.c, current.h + distance)[this.toSelf](), new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]()];
         if (include) rtn.unshift(this);
         return rtn;
     },
@@ -184,10 +180,7 @@ var AbstractColor = Base.extend({
         var side2 = (360 - (sidelength * 2)) / 2;
         var current = this.toCIELCh();
         var rtn = [
-        new CIELCh(current.l, current.c, current.h + side1)[this.toSelf](),
-        new CIELCh(current.l, current.c, current.h + side1 + side2)[this.toSelf](),
-        new CIELCh(current.l, current.c, current.h + side1 + side2 + side1)[this.toSelf]()
-        ];
+        new CIELCh(current.l, current.c, current.h + side1)[this.toSelf](), new CIELCh(current.l, current.c, current.h + side1 + side2)[this.toSelf](), new CIELCh(current.l, current.c, current.h + side1 + side2 + side1)[this.toSelf]()];
         if (include) rtn.unshift(this);
         return rtn;
     },
@@ -285,19 +278,31 @@ var RGB = AbstractColor.extend({
         var rgbcols = [this.r, this.g, this.b];
         var hex = '';
         for (i = 0; i < rgbcols.length; i++) {
+
             var chara = "0123456789ABCDEF";
+
             hex += chara.charAt(Math.floor(rgbcols[i] / 16)) + chara.charAt(rgbcols[i] - (Math.floor(rgbcols[i] / 16) * 16));
+
         }
 
+
+
         return new Hex(hex);
+
     },
+
     toRGB: function () {
         return this;
     },
+
     toXYZ: function () {
+
         var tmp_r = this.r / 255;
+
         var tmp_g = this.g / 255;
+
         var tmp_b = this.b / 255;
+
         if (tmp_r > 0.04045) {
             tmp_r = Math.pow(((tmp_r + 0.055) / 1.055), 2.4)
         } else {
@@ -332,13 +337,11 @@ var RGB = AbstractColor.extend({
 
         var V = var_Max;
 
-        if (del_Max == 0)
-        {
+        if (del_Max == 0) {
             var H = 0
             var S = 0
         }
-        else
-        {
+        else {
             var S = del_Max / var_Max
 
             var del_R = (((var_Max - var_R) / 6) + (del_Max / 2)) / del_Max
@@ -385,14 +388,12 @@ var HSV = AbstractColor.extend({
         return this.toRGB().toHex();
     },
     toRGB: function () {
-        if (this.s == 0)
-        {
+        if (this.s == 0) {
             var R = this.v * 255;
             var G = this.v * 255;
             var B = this.v * 255;
         }
-        else
-        {
+        else {
             var_h = this.h * 6
             if (var_h == 6) var_h = 0;
             var_i = Math.floor(var_h);
@@ -533,7 +534,6 @@ var CMYK = AbstractColor.extend({
     toXYZ: function () {
         return this.toRGB().toXYZ();
     },
-
     toHSV: function () {
         return this.toRGB().toHSV();
     },
