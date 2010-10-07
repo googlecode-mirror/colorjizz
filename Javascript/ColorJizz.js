@@ -233,15 +233,14 @@ var AbstractColor = Base.extend({
 var Hex = AbstractColor.extend({
     constructor: function (hex) {
         this.hex = hex;
-        if (this.hex.substring(0, 1) == '#') this.hex = this.hex.substring(1, 7);
     },
     toHex: function () {
         return this;
     },
     toRGB: function () {
-        var r = parseInt(this.hex.substring(0, 2), 16);
-        var g = parseInt(this.hex.substring(2, 4), 16);
-        var b = parseInt(this.hex.substring(4, 6), 16);
+        var r = ((this.hex & 0xFF0000) >> 16);
+        var g = ((this.hex & 0x00FF00) >> 8);
+        var b = ((this.hex & 0x0000FF));
         return new RGB(r, g, b);
     },
     toXYZ: function () {
@@ -265,6 +264,10 @@ var Hex = AbstractColor.extend({
     toString: function () {
         return this.hex.toUpperCase();
     },
+    fromString: function (str) {
+        str = (str + '').replace(/[^a-f0-9]/gi, '');
+        return new Hex(parseInt(str, 16));
+    },
     toSelf: "toHex"
 });
 
@@ -275,34 +278,15 @@ var RGB = AbstractColor.extend({
         this.b = Math.min(255, Math.max(b, 0));
     },
     toHex: function () {
-        var rgbcols = [this.r, this.g, this.b];
-        var hex = '';
-        for (i = 0; i < rgbcols.length; i++) {
-
-            var chara = "0123456789ABCDEF";
-
-            hex += chara.charAt(Math.floor(rgbcols[i] / 16)) + chara.charAt(rgbcols[i] - (Math.floor(rgbcols[i] / 16) * 16));
-
-        }
-
-
-
-        return new Hex(hex);
-
+        return new Hex(this.r << 16 | this.g << 8 | this.b);
     },
-
     toRGB: function () {
         return this;
     },
-
     toXYZ: function () {
-
         var tmp_r = this.r / 255;
-
         var tmp_g = this.g / 255;
-
         var tmp_b = this.b / 255;
-
         if (tmp_r > 0.04045) {
             tmp_r = Math.pow(((tmp_r + 0.055) / 1.055), 2.4)
         } else {
