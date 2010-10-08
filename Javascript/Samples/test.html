@@ -16,12 +16,12 @@
           'position' : 'absolute',
           'top' : y,
           'left' : x,
-          'width' : 10,
-          'height' : 10,
+          'width' : 15,
+          'height' : 15,
           'z-index': 2,
           'cursor' : 'pointer',
           'background-color' : "#"+range[ii].toHex()
-        }).click(function (){
+        }).mouseover(function (){
            drawSweetSpots(range[ii], r*2);
         }).appendTo("body");
         })();
