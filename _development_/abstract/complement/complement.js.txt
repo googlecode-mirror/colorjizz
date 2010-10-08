@@ -4,4 +4,5 @@ complement : function (include){
     this.hue(180)[this.toSelf]()
   ];
   if (include) rtn.unshift(this);
+  return rtn;
 }

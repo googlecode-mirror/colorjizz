@@ -1,0 +1,15 @@
+public fnuction sweetspot($includeSelf = false){
+  $colors = array($this->toHSV());
+  $colors[1] = new HSV($colors[0]->h, round($colors[0]->s * 0.3), min(round($colors[0]->v * 1.3),100));
+  $colors[3] = new HSV(($colors[0]->h+300)%360, $colors[0]->s, $colors[0]->v);
+  $colors[2] = new HSV($colors[1]->h, min(round($colors[1]->s * 1.2),100), min(round($colors[1]->v * 0.5),100));
+  $colors[4] = new HSV($colors[2]->h, 0, ($colors[2]->v + 50) % 100);
+  $colors[5] = new HSV($colors[4]->h, $colors[4]->s, ($colors[4]->v + 50) % 100);
+  if (!$includeSelf){
+    array_shift($colors);
+  }
+  for ($i=0; $i<count($colors);$i++){
+   $colors[$i] = call_user_func(array($colors[$i], $this->toSelf))
+  }
+  return $colors;
+}
