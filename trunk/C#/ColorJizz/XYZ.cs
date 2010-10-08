@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 
@@ -31,6 +29,7 @@ namespace ColorJizz
             double var_R = var_X * 3.2406 + var_Y * -1.5372 + var_Z * -0.4986;
             double var_G = var_X * -0.9689 + var_Y * 1.8758 + var_Z * 0.0415;
             double var_B = var_X * 0.0557 + var_Y * -0.2040 + var_Z * 1.0570;
+
 
             if (var_R > 0.0031308)
             {

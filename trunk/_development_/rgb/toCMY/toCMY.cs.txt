@@ -1,7 +1,7 @@
 public override CMY toCMY()
 {
-    double C = 1 - (this.r / 255);
-    double M = 1 - (this.g / 255);
-    double Y = 1 - (this.b / 255);
+    double C = 1 - ((double)this.r / 255);
+    double M = 1 - ((double)this.g / 255);
+    double Y = 1 - ((double)this.b / 255);
     return new CMY(C, M, Y);
 }

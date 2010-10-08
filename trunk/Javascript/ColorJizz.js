@@ -288,7 +288,7 @@ var RGB = AbstractColor.extend({
         var tmp_r = this.r / 255;
         var tmp_g = this.g / 255;
         var tmp_b = this.b / 255;
-        console.log(tmp_r);
+      
         if (tmp_r > 0.04045) {
             tmp_r = Math.pow(((tmp_r + 0.055) / 1.055), 2.4)
         } else {
@@ -313,35 +313,38 @@ var RGB = AbstractColor.extend({
         return new XYZ(x, y, z);
     },
     toHSV: function () {
-        var var_R = (this.r / 255);
-        var var_G = (this.g / 255);
-        var var_B = (this.b / 255);
+      var r = this.r/255;
+      var g = this.g/255;
+      var b = this.b/255;
 
-        var var_Min = Math.min(var_R, var_G, var_B);
-        var var_Max = Math.max(var_R, var_G, var_B);
-        var del_Max = var_Max - var_Min;
+      var h, s, v = 0;
+      var min, max, delta = 0;
 
-        var V = var_Max;
+      min = Math.min( r, g, b );
+      max = Math.max( r, g, b );
 
-        if (del_Max == 0) {
-            var H = 0
-            var S = 0
-        }
-        else {
-            var S = del_Max / var_Max
+      v = max;
+      delta = max - min;
+      if(max != 0){
+        s = delta / max;
+      }else {
+        s = 0;
+        h = -1;
+        return new HSV(h, s, v);
+      }
+      if (r == max) {
+        h = (g - b) / delta;
+      } else if( g == max){
+        h = 2 + (b - r) / delta;
+      }else{
+        h = 4 + (r - g) / delta;
+      }
+      h *= 60;
+      if(h < 0){
+        h += 360;
+      }
 
-            var del_R = (((var_Max - var_R) / 6) + (del_Max / 2)) / del_Max
-            var del_G = (((var_Max - var_G) / 6) + (del_Max / 2)) / del_Max
-            var del_B = (((var_Max - var_B) / 6) + (del_Max / 2)) / del_Max
-
-            if (var_R == var_Max) H = del_B - del_G
-            else if (var_G == var_Max) H = (1 / 3) + del_R - del_B
-            else if (var_B == var_Max) H = (2 / 3) + del_G - del_R
-
-            if (H < 0) H += 1;
-            if (H > 1) H -= 1;
-        }
-        return new HSV(H, S, V);
+      return new HSV(h, s*100, v*100);
     },
     toCMY: function () {
         var C = 1 - (this.r / 255);

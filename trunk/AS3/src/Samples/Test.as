@@ -12,7 +12,7 @@
 		
 		public function Test() 
 		{
-			trace(new Hex(0xCC0000).toRGB().toCIELab().toHex());
+			trace(new Hex(0xFFD200).toRGB());
 		}
 		
 	}

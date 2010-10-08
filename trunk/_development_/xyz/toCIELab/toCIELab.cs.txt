@@ -10,7 +10,7 @@ public override CIELab toCIELab()
 
     if (x > 0.008856)
     {
-        x = Math.Pow(x, 1 / 3);
+        x = Math.Pow(x, (double)1 / 3);
     }
     else
     {
@@ -18,7 +18,7 @@ public override CIELab toCIELab()
     }
     if (y > 0.008856)
     {
-        y = Math.Pow(y, 1 / 3);
+        y = Math.Pow(y, (double)1 / 3);
     }
     else
     {
@@ -26,7 +26,7 @@ public override CIELab toCIELab()
     }
     if (z > 0.008856)
     {
-        z = Math.Pow(z, 1 / 3);
+        z = Math.Pow(z, (double)1 / 3);
     }
     else
     {
@@ -43,6 +43,7 @@ public override CIELab toCIELab()
     }
     double a = 500 * (x - y);
     double b = 200 * (y - z);
+
 
     return new CIELab(l, a, b);
 }
