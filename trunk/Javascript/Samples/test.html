@@ -10,7 +10,6 @@
         var ang = i*(360/points);
         var x = Math.round(r*Math.cos(ang*TO_RADIANS))+sx;
         var y = Math.round(r*Math.sin(ang*TO_RADIANS))+sy;
-        console.log(y);
         $("<div />").css({
           'position' : 'absolute',
           'top' : y,
@@ -22,7 +21,7 @@
      }
   }
   $(function (){
-    drawCircle(200, 300, 300, 300);
+    drawCircle(360, 300, 300, 300);
   });
 </script>
 </head>
