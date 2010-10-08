@@ -1,12 +1,13 @@
-public function equal($parts, $includeSelf = false) {
-    if ($parts < 2) $parts = 2;
-    $current = $this->toCIELCh();
-    $distance = 360 / $parts;
-    $palette = array();
-    if ($includeSelf) $palette[] = $this;
-    for ($i = 1; $i < $parts; $i++) {
-        $t = new CIELCh($current->l, $current->c, $current->h + ($distance * $i));
-        $palette[] = call_user_func(array($t, $this->toSelf));
-    }
-    return $palette;
+public function equal($parts, $includeSelf = false)
+{
+  if ($parts < 2) $parts = 2;
+  $current = $this->toCIELCh();
+  $distance = 360 / $parts;
+  $palette = array();
+  if ($includeSelf) $palette[] = $this;
+  for ($i = 1; $i < $parts; $i++){
+    $t = new CIELCh($current->l, $current->c, $current->h + ($distance * $i));
+    $palette[] = call_user_func(array($t, $this->toSelf));
+  }
+  return $palette;
 }

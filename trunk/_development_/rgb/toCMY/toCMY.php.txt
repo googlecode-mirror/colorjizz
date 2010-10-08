@@ -1,6 +1,7 @@
-public function toCMY() {
-    $C = 1 - ($this->r / 255);
-    $M = 1 - ($this->g / 255);
-    $Y = 1 - ($this->b / 255);
-    return new CMY($C, $M, $Y);
+public function toCMY()
+{
+  $C = 1 - ($this->r / 255);
+  $M = 1 - ($this->g / 255);
+  $Y = 1 - ($this->b / 255);
+  return new CMY($C, $M, $Y);
 }

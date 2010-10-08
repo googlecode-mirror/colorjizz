@@ -1,5 +1,6 @@
-public function hue($degreeModifier) {
-    $a = $this->toCIELCh();
-    $a->h += $degreeModifier;
-    return call_user_func(array($a, $this->toSelf));
+public function hue($degreeModifier)
+{
+  $a = $this->toCIELCh();
+  $a->h += $degreeModifier;
+  return call_user_func(array($a, $this->toSelf));
 }

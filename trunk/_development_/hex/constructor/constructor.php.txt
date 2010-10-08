@@ -1,4 +1,5 @@
-public function Hex($hex) {
-    $this->hex = $hex;
-    $this->toSelf = "toHex";
+public function Hex($hex)
+{
+  $this->hex = $hex;
+  $this->toSelf = "toHex";
 }

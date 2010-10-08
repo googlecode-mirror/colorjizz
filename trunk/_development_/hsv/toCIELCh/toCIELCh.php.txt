@@ -1,3 +1,4 @@
-public function toCIELCh() {
-    return $this->toCIELab()->toCIELCh();
+public function toCIELCh()
+{
+  return $this->toCIELab()->toCIELCh();
 }

@@ -1,7 +1,8 @@
-public function CMYK($c, $m, $y, $k) {
-    $this->toSelf = "to";
-    $this->c = $c;
-    $this->m = $m;
-    $this->y = $y;
-    $this->k = $k;
+public function CMYK($c, $m, $y, $k)
+{
+  $this->toSelf = "to";
+  $this->c = $c;
+  $this->m = $m;
+  $this->y = $y;
+  $this->k = $k;
 }

@@ -1,6 +1,7 @@
-public function CIELab($l, $a, $b) {
-    $this->toSelf = "toCIELab";
-    $this->l = $this->roundDec($l, 3);
-    $this->a = $this->roundDec($a, 3);
-    $this->b = $this->roundDec($b, 3);
+public function CIELab($l, $a, $b)
+{
+  $this->toSelf = "toCIELab";
+  $this->l = $this->roundDec($l, 3);
+  $this->a = $this->roundDec($a, 3);
+  $this->b = $this->roundDec($b, 3);
 }

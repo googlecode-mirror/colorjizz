@@ -1,5 +1,5 @@
 public function fromString ($str)
 {
-    if (substr($str, 0, 1) == '#') $str = substr($str, 1, 6);
-    return new Hex(hexdec($str));
+  if (substr($str, 0, 1) == '#') $str = substr($str, 1, 6);
+  return new Hex(hexdec($str));
 }

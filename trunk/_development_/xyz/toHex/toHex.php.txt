@@ -1,3 +1,4 @@
-public function toHex() {
-    return $this->toRGB()->toHex();
+public function toHex()
+{
+  return $this->toRGB()->toHex();
 }

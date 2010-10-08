@@ -1,5 +1,5 @@
 public function toString()
 {
-    list($r, $g, $b) = str_split(dechex($this->hex),2);
-    return strtoupper(hexdec($r).hexdec($g).hexdec($b));
+  list($r, $g, $b) = str_split(dechex($this->hex),2);
+  return strtoupper(hexdec($r).hexdec($g).hexdec($b));
 }
