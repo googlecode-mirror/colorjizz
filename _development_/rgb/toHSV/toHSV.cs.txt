@@ -1,9 +1,8 @@
 public override HSV toHSV()
 {
-    double r, g, b;
-    r = this.r / 255;
-    g = this.g / 255;
-    b = this.b / 255;
+    double r = (double)this.r / 255;
+    double g = (double)this.g / 255;
+    double b = (double)this.b / 255;
 
     double h, s, v;
     double min, max, delta;

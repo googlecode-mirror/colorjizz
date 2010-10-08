@@ -5,3 +5,10 @@ D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\bin\ColorJizz.dll
 D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\bin\ColorJizz.pdb
 D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\WebTest1.dll
 D:\wamp\www\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\WebTest1.pdb
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\bin\WebTest1.dll
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\bin\WebTest1.pdb
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\bin\ColorJizz.dll
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\bin\ColorJizz.pdb
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\WebTest1.dll
+C:\Projects\colorjizz\C#\Samples\WebTest1\WebTest1\obj\Debug\WebTest1.pdb

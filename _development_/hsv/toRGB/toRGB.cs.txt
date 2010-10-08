@@ -43,7 +43,7 @@ public override RGB toRGB()
         {
             var_r = var_1;
             var_g = var_2;
-            var_b = v; 
+            var_b = v;
         }
         else if (var_i == 4)
         {

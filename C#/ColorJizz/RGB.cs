@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 
@@ -30,9 +28,9 @@ namespace ColorJizz
         }
         public override XYZ toXYZ()
         {
-            double tmp_r = this.r / 255;
-            double tmp_g = this.g / 255;
-            double tmp_b = this.b / 255;
+            double tmp_r = (double)this.r / 255;
+            double tmp_g = (double)this.g / 255;
+            double tmp_b = (double)this.b / 255;
             if (tmp_r > 0.04045)
             {
                 tmp_r = Math.Pow((double)((double)tmp_r + 0.055) / 1.055, 2.4);
@@ -63,14 +61,14 @@ namespace ColorJizz
             double x = tmp_r * 0.4124 + tmp_g * 0.3576 + tmp_b * 0.1805;
             double y = tmp_r * 0.2126 + tmp_g * 0.7152 + tmp_b * 0.0722;
             double z = tmp_r * 0.0193 + tmp_g * 0.1192 + tmp_b * 0.9505;
+
             return new XYZ(x, y, z);
         }
         public override HSV toHSV()
         {
-            double r, g, b;
-            r = this.r / 255;
-            g = this.g / 255;
-            b = this.b / 255;
+            double r = (double)this.r / 255;
+            double g = (double)this.g / 255;
+            double b = (double)this.b / 255;
 
             double h, s, v;
             double min, max, delta;
@@ -112,9 +110,9 @@ namespace ColorJizz
         }
         public override CMY toCMY()
         {
-            double C = 1 - (this.r / 255);
-            double M = 1 - (this.g / 255);
-            double Y = 1 - (this.b / 255);
+            double C = 1 - ((double)this.r / 255);
+            double M = 1 - ((double)this.g / 255);
+            double Y = 1 - ((double)this.b / 255);
             return new CMY(C, M, Y);
         }
         public override CMYK toCMYK()
