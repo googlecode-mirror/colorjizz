@@ -79,6 +79,13 @@ package ColorJizz
 			if (includeSelf) rtn.unshift(this);
 			return rtn;
 		}
+		public function complement(includeSelf:Boolean = false):Vector.<AbstractColor>
+		{
+			var rtn:Vector.<AbstractColor> = new Vector.<AbstractColor>();
+			rtn.push(this.hue(180)[this.toSelf]());
+			if (includeSelf) rtn.unshift(this);
+			return rtn;
+		}
 		public function analogous(includeSelf:Boolean = false):Vector.<AbstractColor>
 		{
 			var current:CIELCh = this.toCIELCh();
@@ -156,3 +163,4 @@ package ColorJizz
 	}
 
 }
+

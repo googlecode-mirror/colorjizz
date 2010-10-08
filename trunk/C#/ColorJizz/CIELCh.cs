@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 
@@ -10,55 +8,55 @@ namespace ColorJizz
         public double l;
         public double c;
         public double h;
-        
+
         new protected ConversionMethod toSelf = ConversionMethod.toCIELCh;
 
         public CIELCh(double l, double c, double h)
-{
-    this.l = l;
-    this.c = c;
-    this.h = h < 360 ? h : (h - 360);
-}
+        {
+            this.l = l;
+            this.c = c;
+            this.h = h < 360 ? h : (h - 360);
+        }
         public override Hex toHex()
-{
-    return this.toCIELab().toHex();
-}
+        {
+            return this.toCIELab().toHex();
+        }
         public override RGB toRGB()
-{
-    return this.toCIELab().toRGB();
-}
+        {
+            return this.toCIELab().toRGB();
+        }
         public override XYZ toXYZ()
-{
-    return this.toCIELab().toXYZ();
-}
+        {
+            return this.toCIELab().toXYZ();
+        }
         public override HSV toHSV()
-{
-    return this.toCIELab().toHSV();
-}
+        {
+            return this.toCIELab().toHSV();
+        }
         public override CMY toCMY()
-{
-    return this.toCIELab().toCMY();
-}
+        {
+            return this.toCIELab().toCMY();
+        }
         public override CMYK toCMYK()
-{
-    return this.toCIELab().toCMYK();
-}
+        {
+            return this.toCIELab().toCMYK();
+        }
         public override CIELab toCIELab()
-{
-    double l = this.l;
-    double hradi = this.h * (Math.PI / 180);
-    double a = Math.Cos(hradi) * this.c;
-    double b = Math.Sin(hradi) * this.c;
-    return new CIELab(l, a, b);
-}
+        {
+            double l = this.l;
+            double hradi = this.h * (Math.PI / 180);
+            double a = Math.Cos(hradi) * this.c;
+            double b = Math.Sin(hradi) * this.c;
+            return new CIELab(l, a, b);
+        }
         public override CIELCh toCIELCh()
-{
-    return this;
-}
+        {
+            return this;
+        }
         public override string ToString()
-{
-    return String.Format("{0},{1},{2}", this.l, this.c, this.h);
-}
+        {
+            return String.Format("{0},{1},{2}", this.l, this.c, this.h);
+        }
     }
 }
 

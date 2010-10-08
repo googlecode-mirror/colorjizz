@@ -3,8 +3,8 @@
 <script type="text/javascript" src="../ColorJizz.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
-  var red = new Hex(0xFF0000);
   function drawCircle(points, sx, sy, r) {
+     var range = new Hex(0xFF0000).equal(points, true);
      var TO_RADIANS = Math.PI/180;
      for (var i=0; i < points; i++) {
         var ang = i*(360/points);
@@ -16,12 +16,12 @@
           'left' : x,
           'width' : 10,
           'height' : 10,
-          'background-color' : "#"+red.hue(ang).toHex()
+          'background-color' : "#"+range[i].toHex()
         }).appendTo("body");
      }
   }
   $(function (){
-    drawCircle(360, 300, 300, 300);
+    drawCircle(20, 300, 300, 300);
   });
 </script>
 </head>

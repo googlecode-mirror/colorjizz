@@ -98,6 +98,7 @@ var AbstractColor = Base.extend({
 ||abstract/match/match||,
 ||abstract/equal/equal||,
 ||abstract/split/split||,
+||abstract/complement/complement||,
 ||abstract/analogous/analogous||,
 ||abstract/rectangle/rectangle||,
 ||abstract/range/range||,
