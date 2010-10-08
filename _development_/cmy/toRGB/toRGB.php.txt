@@ -1,6 +1,7 @@
-public function toRGB() {
-    $R = (int) ((1 - $this->c) * 255);
-    $G = (int) ((1 - $this->m) * 255);
-    $B = (int) ((1 - $this->y) * 255);
-    return new RGB($R, $G, $B);
+public function toRGB()
+{
+  $R = (int) ((1 - $this->c) * 255);
+  $G = (int) ((1 - $this->m) * 255);
+  $B = (int) ((1 - $this->y) * 255);
+  return new RGB($R, $G, $B);
 }

@@ -1,3 +1,4 @@
-public function toCMYK() {
-    return $this->toCIELab()->toCMYK();
+public function toCMYK()
+{
+  return $this->toCIELab()->toCMYK();
 }

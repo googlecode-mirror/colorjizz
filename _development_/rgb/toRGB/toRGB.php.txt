@@ -1,3 +1,4 @@
-public function toRGB() {
-    return $this;
+public function toRGB()
+{
+  return $this;
 }

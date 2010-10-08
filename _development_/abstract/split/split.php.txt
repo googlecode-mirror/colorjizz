@@ -1,15 +1,16 @@
-public function split($includeSelf = false) {
-    $current = $this->toCIELCh();
-    $distance = 150;
-    $rtn = array();
+public function split($includeSelf = false)
+{
+  $current = $this->toCIELCh();
+  $distance = 150;
+  $rtn = array();
 
-    $t = new CIELCh($current->l, $current->c, $current->h + $distance);
-    $rtn[] = call_user_func(array($t, $this->toSelf));
+  $t = new CIELCh($current->l, $current->c, $current->h + $distance);
+  $rtn[] = call_user_func(array($t, $this->toSelf));
 
 
-    $t = new CIELCh($current->l, $current->c, $current->h - $distance);
-    $rtn[] = call_user_func(array($t, $this->toSelf));
+  $t = new CIELCh($current->l, $current->c, $current->h - $distance);
+  $rtn[] = call_user_func(array($t, $this->toSelf));
 
-    if ($includeSelf) array_unshift($rtn, $this);
-    return $rtn;
+  if ($includeSelf) array_unshift($rtn, $this);
+  return $rtn;
 }

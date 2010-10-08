@@ -1,3 +1,4 @@
-public function toHSV() {
-    return $this->toCIELab()->toHSV();
+public function toHSV()
+{
+  return $this->toCIELab()->toHSV();
 }
