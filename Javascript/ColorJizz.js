@@ -246,7 +246,8 @@ var Hex = AbstractColor.extend({
   return this.toCIELab().toCIELCh();
 },
   toString: function () {
-  return this.hex.toString(16).toUpperCase();
+  var s = this.hex.toString(16)
+  return ("000000".substr(0, (6-s.length) )+s).toUpperCase();
 }
 ,
   toSelf  : "toHex"
@@ -469,169 +470,169 @@ var CMY = AbstractColor.extend({
 
 var CMYK = AbstractColor.extend({
   constructor : function (c,m,y,k){
-		this.c = c;
-		this.m = m;
-		this.y = y;
-		this.k = k;
-	},
+    this.c = c;
+    this.m = m;
+    this.y = y;
+    this.k = k;
+  },
   toHex : function (){
-		return this.toRGB().toHex();
-	},
+    return this.toRGB().toHex();
+  },
   toRGB : function (){
-		return this.toCMY().toRGB();
-	},
+    return this.toCMY().toRGB();
+  },
   toXYZ : function (){
-		return this.toRGB().toXYZ();
-	},
+    return this.toRGB().toXYZ();
+  },
   toHSV : function (){
-		return this.toRGB().toHSV();
-	},
+    return this.toRGB().toHSV();
+  },
   toCMY : function (){
-		var C = ( this.c * ( 1 - this.k ) + this.k );
-		var M = ( this.m * ( 1 - this.k ) + this.k );
-		var Y = ( this.y * ( 1 - this.k ) + this.k );
-		return new CMY(C,M,Y);
-	},
+    var C = ( this.c * ( 1 - this.k ) + this.k );
+    var M = ( this.m * ( 1 - this.k ) + this.k );
+    var Y = ( this.y * ( 1 - this.k ) + this.k );
+    return new CMY(C,M,Y);
+  },
   toCMYK : function (){
-		return this;
-	},
+    return this;
+  },
   toCIELab : function (){
-		return this.toRGB().toCIELab();
-	},
+    return this.toRGB().toCIELab();
+  },
   toCIELCh : function (){
-		return this.toCIELab().toCIELCh();
-	},
+    return this.toCIELab().toCIELCh();
+  },
   toString : function (){
-		return this.c+','+this.m+','+this.y+','+this.k;
-	},
+    return this.c+','+this.m+','+this.y+','+this.k;
+  },
   toSelf  : "toCMYK"
 });
 
 var XYZ = AbstractColor.extend({
   constructor : function (x,y,z){
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	},
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  },
   toHex : function (){
-		return this.toRGB().toHex();
-	},
+    return this.toRGB().toHex();
+  },
   toRGB : function (){
-		var var_X = this.x / 100;
-		var var_Y = this.y / 100;
-		var var_Z = this.z / 100;
+    var var_X = this.x / 100;
+    var var_Y = this.y / 100;
+    var var_Z = this.z / 100;
 
-		var var_R = var_X *  3.2406 + var_Y * -1.5372 + var_Z * -0.4986;
-		var var_G = var_X * -0.9689 + var_Y *  1.8758 + var_Z *  0.0415;
-		var var_B = var_X *  0.0557 + var_Y * -0.2040 + var_Z *  1.0570;
+    var var_R = var_X *  3.2406 + var_Y * -1.5372 + var_Z * -0.4986;
+    var var_G = var_X * -0.9689 + var_Y *  1.8758 + var_Z *  0.0415;
+    var var_B = var_X *  0.0557 + var_Y * -0.2040 + var_Z *  1.0570;
 
-		if (var_R > 0.0031308) {
-			var_R = 1.055 * Math.pow(var_R,(1/2.4)) - 0.055;
-		}else {
-			var_R = 12.92 * var_R;
-		}
-		if (var_G > 0.0031308){
-			var_G = 1.055 * Math.pow(var_G,(1/2.4)) - 0.055;
-		}else {
-			var_G = 12.92 * var_G;
-		}
-		if (var_B > 0.0031308){
-			var_B = 1.055 * Math.pow(var_B,(1/2.4)) - 0.055;
-		}else {
-			var_B = 12.92 * var_B;
-		}
-		var r = Math.round(var_R * 255);
-		var g = Math.round(var_G * 255);
-		var b = Math.round(var_B * 255);
+    if (var_R > 0.0031308) {
+      var_R = 1.055 * Math.pow(var_R,(1/2.4)) - 0.055;
+    }else {
+      var_R = 12.92 * var_R;
+    }
+    if (var_G > 0.0031308){
+      var_G = 1.055 * Math.pow(var_G,(1/2.4)) - 0.055;
+    }else {
+      var_G = 12.92 * var_G;
+    }
+    if (var_B > 0.0031308){
+      var_B = 1.055 * Math.pow(var_B,(1/2.4)) - 0.055;
+    }else {
+      var_B = 12.92 * var_B;
+    }
+    var r = Math.round(var_R * 255);
+    var g = Math.round(var_G * 255);
+    var b = Math.round(var_B * 255);
 
-		return new RGB(r,g,b);
-	},
+    return new RGB(r,g,b);
+  },
   toXYZ : function (){ return this; },
   toHSV : function (){
-		return this.toRGB().toHSV();
-	},
+    return this.toRGB().toHSV();
+  },
   toCMY : function (){
-		return this.toRGB().toCMY();
-	},
+    return this.toRGB().toCMY();
+  },
   toCMYK : function (){
-		return this.toCMY().toCMYK();
-	},
+    return this.toCMY().toCMYK();
+  },
   toCIELab : function (){
 
-		var Xn =  95.047;
-		var Yn = 100.000;
-		var Zn = 108.883;
+    var Xn =  95.047;
+    var Yn = 100.000;
+    var Zn = 108.883;
 
-		var x = this.x / Xn;
-		var y = this.y / Yn;
-		var z = this.z / Zn;
+    var x = this.x / Xn;
+    var y = this.y / Yn;
+    var z = this.z / Zn;
 
-		if (x > 0.008856){
-			x = Math.pow(x, 1/3);
-		}else {
-			x = (7.787 * x) + (16 / 116);
-		}
-		if (y > 0.008856){
-			y = Math.pow(y, 1 / 3);
-		}else {
-			y = (7.787 * y) + (16 / 116);
-		}
-		if (z > 0.008856){
-			z = Math.pow(z, 1 / 3);
-		}else {
-			z = (7.787 * z) + (16 / 116);
-		}
+    if (x > 0.008856){
+      x = Math.pow(x, 1/3);
+    }else {
+      x = (7.787 * x) + (16 / 116);
+    }
+    if (y > 0.008856){
+      y = Math.pow(y, 1 / 3);
+    }else {
+      y = (7.787 * y) + (16 / 116);
+    }
+    if (z > 0.008856){
+      z = Math.pow(z, 1 / 3);
+    }else {
+      z = (7.787 * z) + (16 / 116);
+    }
 
-		if (y>0.008856){
-			var l = (116 * y) - 16;
-		}else {
-			var l=903.3*y;
-		}
-		var a = 500 * (x - y);
-		var b = 200 * (y - z);
+    if (y>0.008856){
+      var l = (116 * y) - 16;
+    }else {
+      var l=903.3*y;
+    }
+    var a = 500 * (x - y);
+    var b = 200 * (y - z);
 
-		return new CIELab(l, a, b);
-	},
+    return new CIELab(l, a, b);
+  },
   toCIELCh : function (){
-		return this.toCIELab().toCIELCh();
-	},
+    return this.toCIELab().toCIELCh();
+  },
   toString : function (){
-		return this.x+','+this.y+','+this.z;
-	},
+    return this.x+','+this.y+','+this.z;
+  },
   toSelf  : "toXYZ"
 });
 
 var CIELCh = AbstractColor.extend({
   constructor : function (l,c,h){
-		this.l = l;
-		this.c = c;
-		this.h = h<360?h:(h-360);
-	},
+    this.l = l;
+    this.c = c;
+    this.h = h<360?h:(h-360);
+  },
   toHex : function (){
-		return this.toCIELab().toHex();
-	},
+    return this.toCIELab().toHex();
+  },
   toRGB : function (){
-		return this.toCIELab().toRGB();
-	},
+    return this.toCIELab().toRGB();
+  },
   toXYZ : function (){
-		return this.toCIELab().toXYZ();
-	},
+    return this.toCIELab().toXYZ();
+  },
   toHSV : function (){
-		return this.toCIELab().toHSV();
-	},
+    return this.toCIELab().toHSV();
+  },
   toCMY : function (){
-		return this.toCIELab().toCMY();
-	},
+    return this.toCIELab().toCMY();
+  },
   toCMYK : function (){
-		return this.toCIELab().toCMYK();
-	},
+    return this.toCIELab().toCMYK();
+  },
   toCIELab : function (){
-		var l = this.l;
-		var hradi = this.h * (Math.PI/180);
-		var a = Math.cos(hradi) * this.c;
-		var b = Math.sin(hradi) * this.c;
-		return new CIELab(l,a,b);
-	},
+    var l = this.l;
+    var hradi = this.h * (Math.PI/180);
+    var a = Math.cos(hradi) * this.c;
+    var b = Math.sin(hradi) * this.c;
+    return new CIELab(l,a,b);
+  },
   toCIELCh : function (){
     return this;
 },
@@ -643,74 +644,74 @@ var CIELCh = AbstractColor.extend({
 
 var CIELab = AbstractColor.extend({
   constructor : function (l,a,b){
-		this.l = l;
-		this.a = a;
-		this.b = b;
-	},
+    this.l = l;
+    this.a = a;
+    this.b = b;
+  },
   toHex : function (){
-		return this.toRGB().toHex();
-	},
+    return this.toRGB().toHex();
+  },
   toRGB : function (){
-		return this.toXYZ().toRGB();
-	},
+    return this.toXYZ().toRGB();
+  },
   toXYZ : function (){
-		var ref_X =  95.047;
-		var ref_Y = 100.000;
-		var ref_Z = 108.883;
+    var ref_X =  95.047;
+    var ref_Y = 100.000;
+    var ref_Z = 108.883;
 
-		var var_Y = (this.l + 16 ) / 116;
-		var var_X = this.a / 500 + var_Y;
-		var var_Z = var_Y - this.b / 200;
+    var var_Y = (this.l + 16 ) / 116;
+    var var_X = this.a / 500 + var_Y;
+    var var_Z = var_Y - this.b / 200;
 
-		if (Math.pow(var_Y,3) > 0.008856){
-			var_Y = Math.pow(var_Y,3);
-		}else {
-			var_Y = (var_Y - 16 / 116) / 7.787;
-		}
-		if(Math.pow(var_X,3) > 0.008856){
-			var_X = Math.pow(var_X,3);
-		}else {
-			var_X = (var_X - 16 / 116) / 7.787;
-		}
-		if (Math.pow(var_Z,3) > 0.008856){
-			var_Z = Math.pow(var_Z,3);
-		}else {
-			var_Z = (var_Z - 16 / 116) / 7.787;
-		}
-		x = ref_X * var_X;
-		y = ref_Y * var_Y;
-		z = ref_Z * var_Z;
-		return new XYZ(x,y,z);
-	},
+    if (Math.pow(var_Y,3) > 0.008856){
+      var_Y = Math.pow(var_Y,3);
+    }else {
+      var_Y = (var_Y - 16 / 116) / 7.787;
+    }
+    if(Math.pow(var_X,3) > 0.008856){
+      var_X = Math.pow(var_X,3);
+    }else {
+      var_X = (var_X - 16 / 116) / 7.787;
+    }
+    if (Math.pow(var_Z,3) > 0.008856){
+      var_Z = Math.pow(var_Z,3);
+    }else {
+      var_Z = (var_Z - 16 / 116) / 7.787;
+    }
+    x = ref_X * var_X;
+    y = ref_Y * var_Y;
+    z = ref_Z * var_Z;
+    return new XYZ(x,y,z);
+  },
   toHSV : function (){
-		return this.toRGB().toHSV();
-	},
+    return this.toRGB().toHSV();
+  },
   toCMY : function (){
-		return this.toRGB().toCMY();
-	},
+    return this.toRGB().toCMY();
+  },
   toCMYK : function (){
-		return this.toCMY().toCMYK();
-	},
+    return this.toCMY().toCMYK();
+  },
   toCIELab : function (){
-		return this;
-	},
+    return this;
+  },
   toCIELCh : function (){
-		var var_H = Math.atan2( this.b, this.a );
+    var var_H = Math.atan2( this.b, this.a );
 
-		if ( var_H > 0 ) {
-			var_H = ( var_H / Math.PI ) * 180;
-		}else{
-			var_H = 360 - ( Math.abs( var_H ) / Math.PI ) * 180
-		}
+    if ( var_H > 0 ) {
+      var_H = ( var_H / Math.PI ) * 180;
+    }else{
+      var_H = 360 - ( Math.abs( var_H ) / Math.PI ) * 180
+    }
 
-		var l = this.l;
-		var c = Math.sqrt(Math.pow(this.a,2) + Math.pow(this.b,2));
-		var h = var_H;
+    var l = this.l;
+    var c = Math.sqrt(Math.pow(this.a,2) + Math.pow(this.b,2));
+    var h = var_H;
 
-		return new CIELCh(l,c,h);
-	},
+    return new CIELCh(l,c,h);
+  },
   toString : function (){
-		return this.l+','+this.a+','+this.b;
-	},
+    return this.l+','+this.a+','+this.b;
+  },
   toSelf  : "toCIELab"
 });
