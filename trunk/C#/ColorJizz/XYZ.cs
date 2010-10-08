@@ -9,10 +9,10 @@ namespace ColorJizz
         public double y;
         public double z;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toXYZ;
-
         public XYZ(double x, double y, double z)
         {
+
+            this.toSelf = ConversionMethod.toXYZ;
             this.x = this.roundDec(x, 3);
             this.y = this.roundDec(y, 3);
             this.z = this.roundDec(z, 3);

@@ -9,11 +9,9 @@ namespace ColorJizz
         public double s;
         public double v;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toHSV;
-
-
         public HSV(double h, double s, double v)
         {
+            this.toSelf = ConversionMethod.toHSV;
             this.h = h;
             this.s = s;
             this.v = v;

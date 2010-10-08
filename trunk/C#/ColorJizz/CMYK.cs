@@ -10,10 +10,9 @@ namespace ColorJizz
         public double y;
         public double k;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toCMY;
-
         public CMYK(double c, double m, double y, double k)
         {
+            this.toSelf = ConversionMethod.toCMYK;
             this.c = c;
             this.m = m;
             this.y = y;

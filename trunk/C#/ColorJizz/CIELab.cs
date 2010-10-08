@@ -9,10 +9,10 @@ namespace ColorJizz
         public double a;
         public double b;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toCIELab;
-
         public CIELab(double l, double a, double b)
         {
+
+            this.toSelf = ConversionMethod.toCIELab;
             this.l = l;
             this.a = a;
             this.b = b;

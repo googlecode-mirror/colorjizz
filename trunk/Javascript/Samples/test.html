@@ -3,25 +3,47 @@
 <script type="text/javascript" src="../ColorJizz.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
-  function drawCircle(points, sx, sy, r) {
+  function drawCircle(points, r) {
      var range = new Hex(0xFF0000).equal(points, true);
      var TO_RADIANS = Math.PI/180;
      for (var i=0; i < points; i++) {
-        var ang = i*(360/points);
-        var x = Math.round(r*Math.cos(ang*TO_RADIANS))+sx;
-        var y = Math.round(r*Math.sin(ang*TO_RADIANS))+sy;
+        (function (){
+        var ii = i;
+        var ang = ii*(360/points);
+        var x = Math.round(r*Math.cos(ang*TO_RADIANS))+r;
+        var y = Math.round(r*Math.sin(ang*TO_RADIANS))+r;
         $("<div />").css({
           'position' : 'absolute',
           'top' : y,
           'left' : x,
           'width' : 10,
           'height' : 10,
-          'background-color' : "#"+range[i].toHex()
+          'z-index': 2,
+          'cursor' : 'pointer',
+          'background-color' : "#"+range[ii].toHex()
+        }).click(function (){
+           drawSweetSpots(range[ii], r*2);
         }).appendTo("body");
+        })();
      }
   }
+  function drawSweetSpots(color, d){
+    $("div.sweetspot").remove();
+    var colors = color.sweetspot(true);
+    for (var i=0; i<colors.length; i++){
+      $("<div />").addClass("sweetspot").css({
+        'width' : (d-20)/colors.length,
+        'height' : (d-10)/colors.length,
+        'left' : 10+(i*(d/colors.length)),
+        'top' : (d/2) - ((d/colors.length)/2),
+         'z-index': 1,
+        'position' : 'absolute',
+        'background-color' : '#'+colors[i].toHex()
+      }).appendTo("body");
+    }
+  }
   $(function (){
-    drawCircle(20, 300, 300, 300);
+   drawCircle(360, 300);
   });
 </script>
 </head>

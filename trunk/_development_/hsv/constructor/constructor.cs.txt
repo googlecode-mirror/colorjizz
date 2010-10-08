@@ -1,6 +1,7 @@
 public HSV(double h, double s, double v)
 {
-    this.h = h;
-    this.s = s;
-    this.v = v;
+  this.toSelf = ConversionMethod.toHSV;
+  this.h = h;
+  this.s = s;
+  this.v = v;
 }

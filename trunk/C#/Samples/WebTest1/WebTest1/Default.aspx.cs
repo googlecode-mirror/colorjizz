@@ -12,7 +12,7 @@ namespace WebTest1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            color.Text = new Hex(0xFFD200).toCMYK().toXYZ().toHex().toRGB().ToString();
+            color.Text = new Hex(0xCC0000).sweetspot(true)[2].ToString();
         }
     }
 }

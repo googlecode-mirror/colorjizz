@@ -9,10 +9,10 @@ namespace ColorJizz
         public double c;
         public double h;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toCIELCh;
-
         public CIELCh(double l, double c, double h)
         {
+
+            this.toSelf = ConversionMethod.toCIELCh;
             this.l = l;
             this.c = c;
             this.h = h < 360 ? h : (h - 360);
