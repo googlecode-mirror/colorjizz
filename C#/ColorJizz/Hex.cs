@@ -7,10 +7,9 @@ namespace ColorJizz
     {
         public uint hex;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toHex;
-
         public Hex(uint hex)
         {
+            this.toSelf = ConversionMethod.toHex;
             this.hex = hex;
         }
         public override Hex toHex()

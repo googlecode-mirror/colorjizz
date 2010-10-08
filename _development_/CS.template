@@ -59,6 +59,7 @@ namespace ColorJizz
         ||abstract/equal/equal||
         ||abstract/split/split||
         ||abstract/complement/complement||
+        ||abstract/sweetspot/sweetspot||
         ||abstract/analogous/analogous||
         ||abstract/rectangle/rectangle||
         ||abstract/range/range||
@@ -85,8 +86,6 @@ namespace ColorJizz
     public class Hex : AbstractColor
     {
         public uint hex;
-
-        new protected ConversionMethod toSelf = ConversionMethod.toHex;
 
         ||hex/constructor/constructor||
         ||hex/toHex/toHex||
@@ -117,8 +116,6 @@ namespace ColorJizz
         public int g;
         public int b;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toRGB;
-
         ||rgb/constructor/constructor||
         ||rgb/toHex/toHex||
         ||rgb/toRGB/toRGB||
@@ -144,9 +141,6 @@ namespace ColorJizz
         public double h;
         public double s;
         public double v;
-
-        new protected ConversionMethod toSelf = ConversionMethod.toHSV;
-
 
         ||hsv/constructor/constructor||
         ||hsv/toHex/toHex||
@@ -174,7 +168,6 @@ namespace ColorJizz
         public double c;
         public double m;
         public double y;
-        new protected ConversionMethod toSelf = ConversionMethod.toCMY;
 
         ||cmy/constructor/constructor||
         ||cmy/toHex/toHex||
@@ -202,8 +195,6 @@ namespace ColorJizz
         public double m;
         public double y;
         public double k;
-        
-        new protected ConversionMethod toSelf = ConversionMethod.toCMY;
 
         ||cmyk/constructor/constructor||
         ||cmyk/toHex/toHex||
@@ -232,8 +223,6 @@ namespace ColorJizz
         public double y;
         public double z;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toXYZ;
-
         ||xyz/constructor/constructor||
         ||xyz/toHex/toHex||
         ||xyz/toRGB/toRGB||
@@ -261,8 +250,6 @@ namespace ColorJizz
         public double l;
         public double c;
         public double h;
-        
-        new protected ConversionMethod toSelf = ConversionMethod.toCIELCh;
 
         ||cielch/constructor/constructor||
         ||cielch/toHex/toHex||
@@ -291,8 +278,6 @@ namespace ColorJizz
         public double a;
         public double b;
         
-        new protected ConversionMethod toSelf = ConversionMethod.toCIELab;
-
         ||cielab/constructor/constructor||
         ||cielab/toHex/toHex||
         ||cielab/toRGB/toRGB||

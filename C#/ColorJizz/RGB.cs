@@ -9,10 +9,9 @@ namespace ColorJizz
         public int g;
         public int b;
 
-        new protected ConversionMethod toSelf = ConversionMethod.toRGB;
-
         public RGB(int r, int g, int b)
         {
+            this.toSelf = ConversionMethod.toRGB;
             this.r = Math.Min(255, Math.Max(r, 0));
             this.g = Math.Min(255, Math.Max(g, 0));
             this.b = Math.Min(255, Math.Max(b, 0));

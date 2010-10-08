@@ -8,10 +8,10 @@ namespace ColorJizz
         public double c;
         public double m;
         public double y;
-        new protected ConversionMethod toSelf = ConversionMethod.toCMY;
 
         public CMY(double c, double m, double y)
         {
+            this.toSelf = ConversionMethod.toCMY;
             this.c = c;
             this.m = m;
             this.y = y;

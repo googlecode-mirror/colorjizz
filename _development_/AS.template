@@ -30,6 +30,7 @@ package ColorJizz
                 ||abstract/equal/equal||
                 ||abstract/split/split||
                 ||abstract/complement/complement||
+                ||abstract/sweetspot/sweetspot||
                 ||abstract/analogous/analogous||
                 ||abstract/rectangle/rectangle||
                 ||abstract/range/range||

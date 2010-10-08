@@ -1,0 +1,17 @@
+public List<AbstractColor> sweetspot(bool includeSelf)
+{
+  List<HSV> colors = new List<HSV>(6);
+  colors.Add(this.toHSV());
+  colors.Add(new HSV(colors[0].h, Math.Round(colors[0].s * 0.3), Math.Min(Math.Round(colors[0].v * 1.3), 100)));
+  colors.Add(null);
+  colors.Add(new HSV((colors[0].h + 300) % 360, colors[0].s, colors[0].v));
+  colors[2] = new HSV(colors[1].h, Math.Min(Math.Round(colors[1].s * 1.2),100), Math.Min(Math.Round(colors[1].v * 0.5),100));
+  colors.Add(new HSV(colors[2].h, 0, (colors[2].v + 50) % 100));
+  colors.Add(new HSV(colors[4].h, colors[4].s, (colors[4].v + 50) % 100));
+  List<AbstractColor> rtn = new List<AbstractColor>();
+  for (int i = includeSelf?0:1; i < colors.Count; i++)
+  {
+    rtn.Add(colors[i][this.toSelf]);
+  }
+  return rtn;
+}
