@@ -1,9 +1,29 @@
 <html>
 <head>
 <script type="text/javascript" src="../ColorJizz.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
- var h = new Hex(0xFFD200).toCMY().toRGB().toString();
- console.log(h);
+  var red = new Hex(0xFF0000);
+  function drawCircle(points, sx, sy, r) {
+     var TO_RADIANS = Math.PI/180;
+     for (var i=0; i < points; i++) {
+        var ang = i*(360/points);
+        var x = Math.round(r*Math.cos(ang*TO_RADIANS))+sx;
+        var y = Math.round(r*Math.sin(ang*TO_RADIANS))+sy;
+        console.log(y);
+        $("<div />").css({
+          'position' : 'absolute',
+          'top' : y,
+          'left' : x,
+          'width' : 10,
+          'height' : 10,
+          'background-color' : "#"+red.hue(ang).toHex()
+        }).appendTo("body");
+     }
+  }
+  $(function (){
+    drawCircle(200, 300, 300, 300);
+  });
 </script>
 </head>
 <body>

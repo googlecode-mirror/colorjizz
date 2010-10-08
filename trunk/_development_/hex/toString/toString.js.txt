@@ -1,3 +1,4 @@
 toString: function () {
-  return this.hex.toString(16).toUpperCase();
+  var s = this.hex.toString(16)
+  return ("000000".substr(0, (6-s.length) )+s).toUpperCase();
 }
