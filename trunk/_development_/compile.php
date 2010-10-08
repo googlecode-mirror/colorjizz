@@ -35,7 +35,7 @@ switch($language){
     file_put_contents("../Javascript/ColorJizz.js", $contents);
     break;
   case "php":
-    file_put_contents("../PHP/ColorJizz.php", $contents);
+    file_put_contents("../PHP/ColorJizz.php", "<"."?php\n\n".$contents);
     break;
   case "as":
     $packages = explode("package ", $contents);
