@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 
@@ -11,55 +9,55 @@ namespace ColorJizz
         public double m;
         public double y;
         public double k;
-        
+
         new protected ConversionMethod toSelf = ConversionMethod.toCMY;
 
         public CMYK(double c, double m, double y, double k)
-{
-    this.c = c;
-    this.m = m;
-    this.y = y;
-    this.k = k;
-}
+        {
+            this.c = c;
+            this.m = m;
+            this.y = y;
+            this.k = k;
+        }
         public override Hex toHex()
-{
-    return this.toRGB().toHex();
-}
+        {
+            return this.toRGB().toHex();
+        }
         public override RGB toRGB()
-{
-    return this.toCMY().toRGB();
-}
+        {
+            return this.toCMY().toRGB();
+        }
         public override XYZ toXYZ()
-{
-    return this.toRGB().toXYZ();
-}
+        {
+            return this.toRGB().toXYZ();
+        }
         public override HSV toHSV()
-{
-    return this.toRGB().toHSV();
-}
+        {
+            return this.toRGB().toHSV();
+        }
         public override CMY toCMY()
-{
-    double C = (this.c * (1 - this.k) + this.k);
-    double M = (this.m * (1 - this.k) + this.k);
-    double Y = (this.y * (1 - this.k) + this.k);
-    return new CMY(C, M, Y);
-}
+        {
+            double C = (this.c * (1 - this.k) + this.k);
+            double M = (this.m * (1 - this.k) + this.k);
+            double Y = (this.y * (1 - this.k) + this.k);
+            return new CMY(C, M, Y);
+        }
         public override CMYK toCMYK()
-{
-    return this;
-}
+        {
+            return this;
+        }
         public override CIELab toCIELab()
-{
-    return this.toRGB().toCIELab();
-}
+        {
+            return this.toRGB().toCIELab();
+        }
         public override CIELCh toCIELCh()
-{
-    return this.toCIELab().toCIELCh();
-}
+        {
+            return this.toCIELab().toCIELCh();
+        }
         public override string ToString()
-{
-    return String.Format("{0},{1},{2},{3}", this.c, this.m, this.y, this.k);
-}
+        {
+            return String.Format("{0},{1},{2},{3}", this.c, this.m, this.y, this.k);
+        }
 
     }
 }

@@ -76,6 +76,14 @@ abstract class AbstractColor {
         if ($includeSelf) array_unshift($rtn, $this);
         return $rtn;
     }
+    public function complement($includeSelf = false)
+    {
+        $rtn = array();
+        $t = $this->hue(180);
+        $rtn[] = call_user_func(array($t, $this->toSelf));
+        if ($includeSelf) array_unshift($rtn, $this);
+        return $rtn;
+    }
     public function analogous($includeSelf = false)
     {
         $current = $this->toCIELCh();

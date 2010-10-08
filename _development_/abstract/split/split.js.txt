@@ -3,8 +3,8 @@ split : function(include){
   var current = this.toCIELCh();
   var distance = 150;
   var rtn = [
-    new CIELCh(current.l, current.c,current.h+distance)[this.toSelf](),
-    new CIELCh(current.l, current.c,current.h-distance)[this.toSelf]()
+    this.hue(distance)[this.toSelf](),
+    this.hue(distance)[this.toSelf]()
   ];
   if (include) rtn.unshift(this);
   return rtn;
