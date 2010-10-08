@@ -1,0 +1,45 @@
+<html>
+<head>
+<script type="text/javascript" src="../ColorJizz.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+function draw(colors){
+	if (!(colors instanceof Array)) colors = [colors];
+	var wrap = $("<div />").css({
+		'overflow' : 'hidden',
+		'zoom' : 1,
+		'margin-bottom' : 10
+	});
+	var width = (700-colors.length*4)/colors.length;
+	$.each(colors, function (c){
+		$("<div />").css({
+			'width' : width,
+			'height' : 40,
+			'margin-right' : 4,
+			'background-color' : '#'+this,
+			'float' : 'left'
+		}).appendTo(wrap);
+	});
+	wrap.appendTo("body");
+}
+$(function (){
+	var green = new Hex(0x048F07);
+	var blue = new Hex(0x2491B5);
+	draw(green.equal(20, true));
+	draw(green.equal(10, true));
+	draw(green.equal(5, true));
+	draw(green.split(true));
+	draw(green.analogous(true));
+	draw(green.rectangle(50, true));
+	draw(green.range(blue, 10, true));
+	draw(green.complement(true));
+	draw(green.sweetspot(true));
+	draw(green.greyscale());
+	draw(green.websafe());
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

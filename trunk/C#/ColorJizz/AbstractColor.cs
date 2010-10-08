@@ -106,12 +106,10 @@ namespace ColorJizz
         }
         public List<AbstractColor> split(bool includeSelf)
         {
-            CIELCh current = this.toCIELCh();
-            double distance = 150;
             List<AbstractColor> rtn = new List<AbstractColor>();
-            rtn.Add(new CIELCh(current.l, current.c, current.h + distance)[this.toSelf]);
-            rtn.Add(new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]);
-            if (includeSelf) rtn.Insert(0, this);
+            rtn.Add(this.hue(-150)[this.toSelf]);
+            if (includeSelf) rtn.Add(this);
+            rtn.Add(this.hue(150)[this.toSelf]);
             return rtn;
         }
         public List<AbstractColor> complement(bool includeSelf)
@@ -140,12 +138,10 @@ namespace ColorJizz
         }
         public List<AbstractColor> analogous(bool includeSelf)
         {
-            CIELCh current = this.toCIELCh();
-            int distance = 30;
             List<AbstractColor> rtn = new List<AbstractColor>();
-            rtn.Add(new CIELCh(current.l, current.c, current.h + distance)[this.toSelf]);
-            rtn.Add(new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]);
-            if (includeSelf) rtn.Insert(0, this);
+            rtn.Add(this.hue(-30)[this.toSelf]);
+            if (includeSelf) rtn.Add(this);
+            rtn.Add(this.hue(30)[this.toSelf]);
             return rtn;
         }
         public List<AbstractColor> rectangle(int sideLength, bool includeSelf)
@@ -203,9 +199,8 @@ namespace ColorJizz
         }
         public AbstractColor brightness(double brightnessModifier)
         {
-            HSV a = this.toHSV();
-            a.v += (brightnessModifier / 100);
-            a.v = Math.Min(100, Math.Max(0, a.v));
+            CIELab a = this.toCIELab();
+            a.l += brightnessModifier;
             return a[this.toSelf];
         }
         protected double roundDec(double numIn, double decimalPlaces)

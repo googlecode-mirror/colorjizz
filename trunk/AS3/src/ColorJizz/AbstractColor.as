@@ -71,12 +71,10 @@ package ColorJizz
 		}
 		public function split(includeSelf:Boolean = false):Vector.<AbstractColor>
 		{
-			var current:CIELCh = this.toCIELCh();
-			var distance:Number = 150;
 			var rtn:Vector.<AbstractColor> = new Vector.<AbstractColor>();
-			rtn.push(new CIELCh(current.l, current.c, current.h + distance)[this.toSelf]());
-			rtn.push(new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]());
-			if (includeSelf) rtn.unshift(this);
+			rtn.push(this.hue(150)[this.toSelf]());
+			rtn.push(this);
+			rtn.push(this.hue(-150)[this.toSelf]());
 			return rtn;
 		}
 		public function complement(includeSelf:Boolean = false):Vector.<AbstractColor>
@@ -102,12 +100,10 @@ package ColorJizz
 		}
 		public function analogous(includeSelf:Boolean = false):Vector.<AbstractColor>
 		{
-			var current:CIELCh = this.toCIELCh();
-			var distance:int = 30;
 			var rtn:Vector.<AbstractColor> = new Vector.<AbstractColor>();
-			rtn.push(new CIELCh(current.l, current.c, current.h + distance)[this.toSelf]());
-			rtn.push(new CIELCh(current.l, current.c, current.h - distance)[this.toSelf]());
-			if (includeSelf) rtn.unshift(this);
+			rtn.push(this.hue(30)[this.toSelf]());
+			rtn.push(this);
+			rtn.push(this.hue(-30)[this.toSelf]());
 			return rtn;
 		}
 		public function rectangle(sideLength:int, includeSelf:Boolean = false):Vector.<AbstractColor>
@@ -164,9 +160,8 @@ package ColorJizz
 		}
 		public function brightness(brightnessModifier:Number):AbstractColor
 		{
-			var a:HSV = this.toHSV();
-			a.v += (brightnessModifier/100);
-			a.v = Math.min(100,Math.max(0,a.v));
+			var a:CIELab = this.toCIELab();
+			a.l += brightnessModifier;
 			return a[this.toSelf]();
 		}
 		protected function roundDec(numIn:Number, decimalPlaces:int):Number {
