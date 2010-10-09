@@ -15,6 +15,10 @@ import asunit.framework.TestCase;
    		}
 		protected override function setUp():void {
 			colors["red"] = new HSV(0, 100, 80);
+			colors["green"] = new HSV(120, 100, 80);
+			colors["blue"] = new HSV(240, 100, 80);
+			colors["white"] = new HSV(0, 0, 100);
+			colors["darkpurple"] = new HSV(270,80,43);
    		}
 		protected override function tearDown():void {
    		}

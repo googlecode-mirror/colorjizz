@@ -1,4 +1,4 @@
 public function toCMY()
 {
-  return $this->toRGB->toCMY();
+  return $this->toRGB()->toCMY();
 }
