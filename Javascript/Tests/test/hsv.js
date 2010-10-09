@@ -9,8 +9,6 @@ module("HSV", {
   }
 });
 
-
-
 test("HSV -> RGB -> HSV", function () {
     for (color in this.colors){
       var c = this.colors[color];
