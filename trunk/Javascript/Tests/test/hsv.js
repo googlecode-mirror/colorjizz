@@ -2,6 +2,10 @@ module("HSV", {
   setup: function() {
     this.colors = {};
     this.colors["red"] = new HSV(0, 100, 80);
+    this.colors["green"] = new HSV(120, 100, 80);
+    this.colors["blue"] = new HSV(240, 100, 80);
+    this.colors["white"] = new HSV(0, 0, 100);
+    this.colors["darkpurple"] = new HSV(270,80,43);
   }
 });
 
