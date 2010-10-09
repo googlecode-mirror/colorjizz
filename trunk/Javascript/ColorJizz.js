@@ -461,7 +461,7 @@ var HSV = AbstractColor.extend({
         return this.toRGB().toXYZ();
     },
     toYxy: function () {
-        return this.toXYX().toYxy();
+        return this.toXYZ().toYxy();
     },
     toHSV: function () {
         return this;
@@ -504,9 +504,9 @@ var CMY = AbstractColor.extend({
         return this.toRGB().toXYZ();
     },
     toYxy: function () {
-        return this.toXYX().toYxy();
+        return this.toXYZ().toYxy();
     },
-    toCMY: function () {
+    toHSV: function () {
         return this.toRGB().toHSV();
     },
     toCMY: function () {

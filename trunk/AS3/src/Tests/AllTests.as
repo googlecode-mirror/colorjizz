@@ -1,6 +1,7 @@
 package Tests
 {
 	import asunit.framework.TestSuite;
+	import ColorJizz.CIELCh;
 	import ColorJizz.Hex;
 	
 	/**
@@ -13,6 +14,7 @@ package Tests
 		public function AllTests() 
 		{
 			super();
+			
    			addTest(new HexConversionTest("convertToRGB"));
    			addTest(new HexConversionTest("convertToHSV"));
    			addTest(new HexConversionTest("convertToCMY"));
@@ -81,6 +83,25 @@ package Tests
    			addTest(new YxyConversionTest("convertToHex"));
    			addTest(new YxyConversionTest("convertToXYZ"));
    			addTest(new YxyConversionTest("convertToCIELCh"));
+			
+			addTest(new CMYConversionTest("convertToRGB"));
+   			addTest(new CMYConversionTest("convertToHex"));
+   			addTest(new CMYConversionTest("convertToCMYK"));
+   			addTest(new CMYConversionTest("convertToYxy"));
+   			addTest(new CMYConversionTest("convertToCIELab"));
+   			addTest(new CMYConversionTest("convertToHex"));
+   			addTest(new CMYConversionTest("convertToXYZ"));
+   			addTest(new CMYConversionTest("convertToCIELCh"));
+			
+			
+			addTest(new CIELChConversionTest("convertToRGB"));
+   			addTest(new CIELChConversionTest("convertToHex"));
+   			addTest(new CIELChConversionTest("convertToCMYK"));
+   			addTest(new CIELChConversionTest("convertToYxy"));
+   			addTest(new CIELChConversionTest("convertToCIELab"));
+   			addTest(new CIELChConversionTest("convertToHex"));
+   			addTest(new CIELChConversionTest("convertToXYZ"));
+   			addTest(new CIELChConversionTest("convertToCMY"));
 			
 		}
 		
