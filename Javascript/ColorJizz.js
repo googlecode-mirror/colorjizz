@@ -97,6 +97,9 @@ var AbstractColor = Base.extend({
     toXYZ: function () {
         this.warn();
     },
+    toYxy: function () {
+        this.warn();
+    },
     toCIELab: function () {
         this.warn();
     },
@@ -262,6 +265,9 @@ var Hex = AbstractColor.extend({
     toXYZ: function () {
         return this.toRGB().toXYZ();
     },
+    toYxy: function () {
+        return this.toRGB().toYxy();
+    },
     toHSV: function () {
         return this.toRGB().toHSV();
     },
@@ -327,6 +333,9 @@ var RGB = AbstractColor.extend({
         var y = tmp_r * 0.2126 + tmp_g * 0.7152 + tmp_b * 0.0722;
         var z = tmp_r * 0.0193 + tmp_g * 0.1192 + tmp_b * 0.9505;
         return new XYZ(x, y, z);
+    },
+    toYxy: function () {
+        return this.toXYZ().toYxy();
     },
     toHSV: function () {
         var r = this.r / 255;
@@ -451,6 +460,9 @@ var HSV = AbstractColor.extend({
     toXYZ: function () {
         return this.toRGB().toXYZ();
     },
+    toYxy: function () {
+        return this.toXYX().toYxy();
+    },
     toHSV: function () {
         return this;
     },
@@ -490,6 +502,9 @@ var CMY = AbstractColor.extend({
     },
     toXYZ: function () {
         return this.toRGB().toXYZ();
+    },
+    toYxy: function () {
+        return this.toXYX().toYxy();
     },
     toCMY: function () {
         return this.toRGB().toHSV();
@@ -543,6 +558,9 @@ var CMYK = AbstractColor.extend({
     },
     toXYZ: function () {
         return this.toRGB().toXYZ();
+    },
+    toYxy: function () {
+        return this.toXYZ().toYxy();
     },
     toHSV: function () {
         return this.toRGB().toHSV();
@@ -610,6 +628,12 @@ var XYZ = AbstractColor.extend({
     toXYZ: function () {
         return this;
     },
+    toYxy: function () {
+        var Y = this.y;
+        var x = this.x / (this.x + this.y + this.z);
+        var y = this.y / (this.x + Y + this.z);
+        return new Yxy(Y, x, y);
+    },
     toHSV: function () {
         return this.toRGB().toHSV();
     },
@@ -664,6 +688,48 @@ var XYZ = AbstractColor.extend({
     toSelf: "toXYZ"
 });
 
+var Yxy = AbstractColor.extend({
+    constructor: function (Y, x, y) {
+        this.Y = Y;
+        this.x = x;
+        this.y = y;
+    },
+    toHex: function () {
+        return this.toXYZ().toHex();
+    },
+    toRGB: function () {
+        return this.toXYZ().toRGB();
+    },
+    toXYZ: function () {
+        var X = this.x * (this.Y / this.y);
+        var Y = this.Y;
+        var Z = (1 - this.x - this.y) * (this.Y / this.y);
+        return new XYZ(X, Y, Z);
+    },
+    toYxy: function () {
+        return this;
+    },
+    toHSV: function () {
+        return this.toXYZ().toHSV();
+    },
+    toCMY: function () {
+        return this.toXYZ().toCMY();
+    },
+    toCMYK: function () {
+        return this.toXYZ().toCMYK();
+    },
+    toCIELab: function () {
+        return this.toXYZ().toCIELab();
+    },
+    toCIELCh: function () {
+        return this.toXYZ().toCIELCh();
+    },
+    toString: function () {
+        return this.Y + ',' + this.x + ',' + this.y;
+    },
+    toSelf: "toYxy"
+});
+
 var CIELCh = AbstractColor.extend({
     constructor: function (l, c, h) {
         this.l = l;
@@ -678,6 +744,9 @@ var CIELCh = AbstractColor.extend({
     },
     toXYZ: function () {
         return this.toCIELab().toXYZ();
+    },
+    toYxy: function () {
+        return this.toXYZ().toYxy();
     },
     toHSV: function () {
         return this.toCIELab().toHSV();
@@ -744,6 +813,9 @@ var CIELab = AbstractColor.extend({
         y = ref_Y * var_Y;
         z = ref_Z * var_Z;
         return new XYZ(x, y, z);
+    },
+    toYxy: function () {
+        return this.toXYZ().toYxy();
     },
     toHSV: function () {
         return this.toRGB().toHSV();

@@ -1,0 +1,7 @@
+override public function toYxy():Yxy
+{
+  var Y:Number = this.y;
+  var x:Number = this.x / ( this.x + this.y + this.z );
+  var y:Number = this.y / ( this.x + Y + this.z );
+  return new Yxy(Y, x, y);
+}

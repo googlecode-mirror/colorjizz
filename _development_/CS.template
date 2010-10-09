@@ -8,6 +8,7 @@ namespace ColorJizz
         toCIELab,
         toCIELCh,
         toXYZ,
+        toYxy,
         toRGB,
         toHex,
         toHSV,
@@ -39,6 +40,8 @@ namespace ColorJizz
                         return toRGB();
                     case ConversionMethod.toXYZ:
                         return toXYZ();
+                    case ConversionMethod.toYxy:
+                        return toYxy();
                     default:
                         return toRGB();
                 }
@@ -48,6 +51,7 @@ namespace ColorJizz
         ||abstract/toHex/toHex||
         ||abstract/toRGB/toRGB||
         ||abstract/toXYZ/toXYZ||
+        ||abstract/toYxy/toYxy||
         ||abstract/toCIELab/toCIELab||
         ||abstract/toCIELCh/toCIELCh||
         ||abstract/toCMY/toCMY||
@@ -91,6 +95,7 @@ namespace ColorJizz
         ||hex/toHex/toHex||
         ||hex/toRGB/toRGB||
         ||hex/toXYZ/toXYZ||
+        ||hex/toYxy/toYxy||
         ||hex/toHSV/toHSV||
         ||hex/toCMY/toCMY||
         ||hex/toCMYK/toCMYK||
@@ -120,6 +125,7 @@ namespace ColorJizz
         ||rgb/toHex/toHex||
         ||rgb/toRGB/toRGB||
         ||rgb/toXYZ/toXYZ||
+        ||rgb/toYxy/toYxy||
         ||rgb/toHSV/toHSV||
         ||rgb/toCMY/toCMY||
         ||rgb/toCMYK/toCMYK||
@@ -146,6 +152,7 @@ namespace ColorJizz
         ||hsv/toHex/toHex||
         ||hsv/toRGB/toRGB||
         ||hsv/toXYZ/toXYZ||
+        ||hsv/toYxy/toYxy||
         ||hsv/toHSV/toHSV||
         ||hsv/toCMY/toCMY||
         ||hsv/toCMYK/toCMYK||
@@ -173,6 +180,7 @@ namespace ColorJizz
         ||cmy/toHex/toHex||
         ||cmy/toRGB/toRGB||
         ||cmy/toXYZ/toXYZ||
+        ||cmy/toYxy/toYxy||
         ||cmy/toHSV/toHSV||
         ||cmy/toCMY/toCMY||
         ||cmy/toCMYK/toCMYK||
@@ -200,6 +208,7 @@ namespace ColorJizz
         ||cmyk/toHex/toHex||
         ||cmyk/toRGB/toRGB||
         ||cmyk/toXYZ/toXYZ||
+        ||cmyk/toYxy/toYxy||
         ||cmyk/toHSV/toHSV||
         ||cmyk/toCMY/toCMY||
         ||cmyk/toCMYK/toCMYK||
@@ -227,6 +236,7 @@ namespace ColorJizz
         ||xyz/toHex/toHex||
         ||xyz/toRGB/toRGB||
         ||xyz/toXYZ/toXYZ||
+        ||xyz/toYxy/toYxy||
         ||xyz/toHSV/toHSV||
         ||xyz/toCMY/toCMY||
         ||xyz/toCMYK/toCMYK||
@@ -237,6 +247,33 @@ namespace ColorJizz
     }
 }
 
+/*------------------*/
+
+using System;
+using System.Collections.Generic;
+
+namespace ColorJizz
+{
+    public class Yxy : AbstractColor
+    {
+        public double Y;
+        public double x;
+        public double y;
+
+        ||yxy/constructor/constructor||
+        ||yxy/toHex/toHex||
+        ||yxy/toRGB/toRGB||
+        ||yxy/toXYZ/toXYZ||
+        ||yxy/toYxy/toYxy||
+        ||yxy/toHSV/toHSV||
+        ||yxy/toCMY/toCMY||
+        ||yxy/toCMYK/toCMYK||
+        ||yxy/toCIELab/toCIELab||
+        ||yxy/toCIELCh/toCIELCh||
+        ||yxy/toString/toString||
+
+    }
+}
 
 /*------------------*/
 
@@ -255,6 +292,7 @@ namespace ColorJizz
         ||cielch/toHex/toHex||
         ||cielch/toRGB/toRGB||
         ||cielch/toXYZ/toXYZ||
+        ||cielch/toYxy/toYxy||
         ||cielch/toHSV/toHSV||
         ||cielch/toCMY/toCMY||
         ||cielch/toCMYK/toCMYK||
@@ -282,6 +320,7 @@ namespace ColorJizz
         ||cielab/toHex/toHex||
         ||cielab/toRGB/toRGB||
         ||cielab/toXYZ/toXYZ||
+        ||cielab/toYxy/toYxy||
         ||cielab/toHSV/toHSV||
         ||cielab/toCMY/toCMY||
         ||cielab/toCMYK/toCMYK||

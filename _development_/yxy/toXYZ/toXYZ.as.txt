@@ -1,0 +1,7 @@
+override public function toXYZ():XYZ
+{
+  var X:Number = this.x * ( this.Y / this.y );
+  var Y:Number = this.Y;
+  var Z:Number = ( 1 - this.x - this.y ) * ( this.Y / this.y );
+  return new XYZ(X, Y, Z);
+}

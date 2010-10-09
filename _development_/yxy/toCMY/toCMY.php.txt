@@ -1,0 +1,4 @@
+public function toCMY()
+{
+  return $this->toXYZ()->toCMY();
+}

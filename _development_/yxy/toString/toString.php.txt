@@ -1,0 +1,4 @@
+public function toString()
+{
+  return $this->Y . ',' . $this->x . ',' . $this->y;
+}

@@ -1,0 +1,4 @@
+public override Yxy toYxy()
+{
+  return this.toXYZ().toYxy();
+}

@@ -1,0 +1,4 @@
+public function toCIELab()
+{
+  return $this->toXYZ()->toCIELab();
+}

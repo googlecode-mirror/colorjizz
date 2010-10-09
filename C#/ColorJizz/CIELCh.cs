@@ -31,6 +31,10 @@ namespace ColorJizz
         {
             return this.toCIELab().toXYZ();
         }
+        public override Yxy toYxy()
+        {
+            return this.toXYZ().toYxy();
+        }
         public override HSV toHSV()
         {
             return this.toCIELab().toHSV();

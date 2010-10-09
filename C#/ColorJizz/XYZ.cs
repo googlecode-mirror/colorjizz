@@ -67,6 +67,13 @@ namespace ColorJizz
         {
             return this;
         }
+        public override Yxy toYxy()
+        {
+            double Y = this.y;
+            double x = this.x / (this.x + this.y + this.z);
+            double y = this.y / (this.x + Y + this.z);
+            return new Yxy(Y, x, y);
+        }
         public override HSV toHSV()
         {
             return this.toRGB().toHSV();
@@ -139,5 +146,4 @@ namespace ColorJizz
 
     }
 }
-
 

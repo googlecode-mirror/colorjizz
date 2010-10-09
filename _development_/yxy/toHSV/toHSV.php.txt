@@ -1,0 +1,4 @@
+public function toHSV()
+{
+  return $this->toXYZ()->toHSV();
+}
