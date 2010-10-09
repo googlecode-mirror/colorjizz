@@ -1,0 +1,4 @@
+public override Hex toHex()
+{
+  return this.toXYZ().toHex();
+}

@@ -26,6 +26,7 @@ $classes = array(
   "CMY",
   "CMYK",
   "XYZ",
+  "Yxy",
   "CIELCh",
   "CIELab"
   );

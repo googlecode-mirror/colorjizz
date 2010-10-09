@@ -8,6 +8,7 @@ package ColorJizz
 	import ColorJizz.HSV;
 	import ColorJizz.RGB;
 	import ColorJizz.XYZ;
+	import ColorJizz.Yxy;
 	/**
 	 * ...
 	 * @author Mikee
@@ -22,6 +23,7 @@ package ColorJizz
 		public function toHex():Hex { return null;  }
 		public function toRGB():RGB { return null;  }
 		public function toXYZ():XYZ { return null;  }
+		public function toYxy():Yxy { return null; }
 		public function toCIELab():CIELab {return null;  }
 		public function toCIELCh():CIELCh { return null; }
 		public function toCMY():CMY { return null; }
@@ -73,7 +75,9 @@ package ColorJizz
 		{
 			var rtn:Vector.<AbstractColor> = new Vector.<AbstractColor>();
 			rtn.push(this.hue(150)[this.toSelf]());
-			rtn.push(this);
+			if (includeSelf){
+				rtn.push(this);
+			}
 			rtn.push(this.hue(-150)[this.toSelf]());
 			return rtn;
 		}
@@ -102,7 +106,9 @@ package ColorJizz
 		{
 			var rtn:Vector.<AbstractColor> = new Vector.<AbstractColor>();
 			rtn.push(this.hue(30)[this.toSelf]());
-			rtn.push(this);
+			if (includeSelf){
+				rtn.push(this);
+			}
 			rtn.push(this.hue(-30)[this.toSelf]());
 			return rtn;
 		}

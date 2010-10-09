@@ -1,0 +1,4 @@
+public function toCIELCh()
+{
+  return $this->toXYZ()->toCIELCh();
+}

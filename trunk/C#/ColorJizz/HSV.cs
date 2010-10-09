@@ -92,6 +92,10 @@ namespace ColorJizz
         {
             return this.toRGB().toXYZ();
         }
+        public override Yxy toYxy()
+        {
+            return this.toXYZ().toYxy();
+        }
         public override HSV toHSV()
         {
             return this;

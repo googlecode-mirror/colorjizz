@@ -1,0 +1,6 @@
+toXYZ: function () {
+  var X = this.x * ( this.Y / this.y );
+  var Y = this.Y;
+  var Z = ( 1 - this.x - this.y ) * ( this.Y / this.y );
+  return new XYZ(X, Y, Z);
+}

@@ -1,0 +1,7 @@
+public Yxy(double Y, double x, double y)
+{
+  this.toSelf = ConversionMethod.toYxy;
+  this.Y = Y;
+  this.x = x;
+  this.y = y;
+}

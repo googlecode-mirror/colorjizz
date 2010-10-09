@@ -8,6 +8,7 @@ package ColorJizz
 	import ColorJizz.HSV;
 	import ColorJizz.RGB;
 	import ColorJizz.XYZ;
+	import ColorJizz.Yxy;
 	/**
 	 * ...
 	 * @author Mikee
@@ -62,6 +63,13 @@ package ColorJizz
 		override public function toXYZ():XYZ
 		{
 			return this;
+		}
+		override public function toYxy():Yxy
+		{
+			var Y:Number = this.y;
+			var x:Number = this.x / ( this.x + this.y + this.z );
+			var y:Number = this.y / ( this.x + Y + this.z );
+			return new Yxy(Y, x, y);
 		}
 		override public function toHSV():HSV
 		{

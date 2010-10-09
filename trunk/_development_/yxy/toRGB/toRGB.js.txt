@@ -1,0 +1,3 @@
+toRGB: function () {
+  return this.toXYZ().toRGB();
+}

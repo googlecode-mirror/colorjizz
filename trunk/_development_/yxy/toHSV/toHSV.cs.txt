@@ -1,0 +1,4 @@
+public override HSV toHSV()
+{
+  return this.toXYZ().toHSV();
+}

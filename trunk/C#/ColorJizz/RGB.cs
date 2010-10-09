@@ -65,6 +65,10 @@ namespace ColorJizz
 
             return new XYZ(x, y, z);
         }
+        public override Yxy toYxy()
+        {
+            return this.toXYZ().toYxy();
+        }
         public override HSV toHSV()
         {
             double r = (double)this.r / 255;

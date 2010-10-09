@@ -8,6 +8,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -19,6 +20,7 @@ package ColorJizz
                 ||abstract/toHex/toHex||
                 ||abstract/toRGB/toRGB||
                 ||abstract/toXYZ/toXYZ||
+                ||abstract/toYxy/toYxy||
                 ||abstract/toCIELab/toCIELab||
                 ||abstract/toCIELCh/toCIELCh||
                 ||abstract/toCMY/toCMY||
@@ -57,6 +59,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -68,6 +71,7 @@ package ColorJizz
                 ||hex/toHex/toHex||
                 ||hex/toRGB/toRGB||
                 ||hex/toXYZ/toXYZ||
+                ||hex/toYxy/toYxy||
                 ||hex/toHSV/toHSV||
                 ||hex/toCMY/toCMY||
                 ||hex/toCMYK/toCMYK||
@@ -89,6 +93,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -102,6 +107,7 @@ package ColorJizz
                 ||rgb/toHex/toHex||
                 ||rgb/toRGB/toRGB||
                 ||rgb/toXYZ/toXYZ||
+                ||rgb/toYxy/toYxy||
                 ||rgb/toHSV/toHSV||
                 ||rgb/toCMY/toCMY||
                 ||rgb/toCMYK/toCMYK||
@@ -123,6 +129,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -136,6 +143,7 @@ package ColorJizz
                 ||hsv/toHex/toHex||
                 ||hsv/toRGB/toRGB||
                 ||hsv/toXYZ/toXYZ||
+                ||hsv/toYxy/toYxy||
                 ||hsv/toHSV/toHSV||
                 ||hsv/toCMY/toCMY||
                 ||hsv/toCMYK/toCMYK||
@@ -157,6 +165,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -170,6 +179,7 @@ package ColorJizz
                 ||cmy/toHex/toHex||
                 ||cmy/toRGB/toRGB||
                 ||cmy/toXYZ/toXYZ||
+                ||cmy/toYxy/toYxy||
                 ||cmy/toHSV/toHSV||
                 ||cmy/toCMY/toCMY||
                 ||cmy/toCMYK/toCMYK||
@@ -190,6 +200,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -204,6 +215,7 @@ package ColorJizz
                 ||cmyk/toHex/toHex||
                 ||cmyk/toRGB/toRGB||
                 ||cmyk/toXYZ/toXYZ||
+                ||cmyk/toYxy/toYxy||
                 ||cmyk/toHSV/toHSV||
                 ||cmyk/toCMY/toCMY||
                 ||cmyk/toCMYK/toCMYK||
@@ -225,6 +237,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -238,6 +251,7 @@ package ColorJizz
                 ||xyz/toHex/toHex||
                 ||xyz/toRGB/toRGB||
                 ||xyz/toXYZ/toXYZ||
+                ||xyz/toYxy/toYxy||
                 ||xyz/toHSV/toHSV||
                 ||xyz/toCMY/toCMY||
                 ||xyz/toCMYK/toCMYK||
@@ -259,6 +273,43 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
+        /**
+         * ...
+         * @author Mikee
+         */
+        public class Yxy extends AbstractColor
+        {
+                public var Y:Number;
+                public var x:Number;
+                public var y:Number;
+                ||yxy/constructor/constructor||
+                ||yxy/toHex/toHex||
+                ||yxy/toRGB/toRGB||
+                ||yxy/toXYZ/toXYZ||
+                ||yxy/toYxy/toYxy||
+                ||yxy/toHSV/toHSV||
+                ||yxy/toCMY/toCMY||
+                ||yxy/toCMYK/toCMYK||
+                ||yxy/toCIELab/toCIELab||
+                ||yxy/toCIELCh/toCIELCh||
+                ||yxy/toString/toString||
+        }
+
+}
+
+
+package ColorJizz 
+{
+        import ColorJizz.CIELab;
+        import ColorJizz.CIELCh;
+        import ColorJizz.CMY;
+        import ColorJizz.CMYK;
+        import ColorJizz.Hex;
+        import ColorJizz.HSV;
+        import ColorJizz.RGB;
+        import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -272,6 +323,7 @@ package ColorJizz
                 ||cielch/toHex/toHex||
                 ||cielch/toRGB/toRGB||
                 ||cielch/toXYZ/toXYZ||
+                ||cielch/toYxy/toYxy||
                 ||cielch/toHSV/toHSV||
                 ||cielch/toCMY/toCMY||
                 ||cielch/toCMYK/toCMYK||
@@ -292,6 +344,7 @@ package ColorJizz
         import ColorJizz.HSV;
         import ColorJizz.RGB;
         import ColorJizz.XYZ;
+        import ColorJizz.Yxy;
         /**
          * ...
          * @author Mikee
@@ -305,6 +358,7 @@ package ColorJizz
                 ||cielab/toHex/toHex||
                 ||cielab/toRGB/toRGB||
                 ||cielab/toXYZ/toXYZ||
+                ||cielab/toYxy/toYxy||
                 ||cielab/toHSV/toHSV||
                 ||cielab/toCMY/toCMY||
                 ||cielab/toCMYK/toCMYK||

@@ -1,0 +1,4 @@
+public function toRGB()
+{
+  return $this->toXYZ()->toRGB();
+}

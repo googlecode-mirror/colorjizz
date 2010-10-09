@@ -1,0 +1,4 @@
+public function toHex()
+{
+  return $this->toXYZ()->toYxy();
+}

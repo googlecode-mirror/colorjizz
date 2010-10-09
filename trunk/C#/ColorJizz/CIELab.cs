@@ -66,6 +66,10 @@ namespace ColorJizz
             double z = ref_Z * var_Z;
             return new XYZ(x, y, z);
         }
+        public override Yxy toYxy()
+        {
+            return this.toXYZ().toYxy();
+        }
         public override HSV toHSV()
         {
             return this.toRGB().toHSV();

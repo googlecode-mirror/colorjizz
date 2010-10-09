@@ -8,6 +8,7 @@ package ColorJizz
 	import ColorJizz.HSV;
 	import ColorJizz.RGB;
 	import ColorJizz.XYZ;
+	import ColorJizz.Yxy;
 	/**
 	 * ...
 	 * @author Mikee
@@ -57,6 +58,10 @@ package ColorJizz
 			var y:Number = tmp_r * 0.2126 + tmp_g * 0.7152 + tmp_b * 0.0722;
 			var z:Number = tmp_r * 0.0193 + tmp_g * 0.1192 + tmp_b * 0.9505;
 			return new XYZ(x,y,z);
+		}
+		override public function toYxy():Yxy
+		{
+			return this.toXYZ().toYxy();
 		}
 		override public function toHSV():HSV
 		{

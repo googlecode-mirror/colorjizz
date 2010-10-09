@@ -8,6 +8,7 @@ namespace ColorJizz
         toCIELab,
         toCIELCh,
         toXYZ,
+        toYxy,
         toRGB,
         toHex,
         toHSV,
@@ -39,6 +40,8 @@ namespace ColorJizz
                         return toRGB();
                     case ConversionMethod.toXYZ:
                         return toXYZ();
+                    case ConversionMethod.toYxy:
+                        return toYxy();
                     default:
                         return toRGB();
                 }
@@ -48,6 +51,7 @@ namespace ColorJizz
         public abstract Hex toHex();
         public abstract RGB toRGB();
         public abstract XYZ toXYZ();
+        public abstract Yxy toYxy();
         public abstract CIELab toCIELab();
         public abstract CIELCh toCIELCh();
         public abstract CMY toCMY();
