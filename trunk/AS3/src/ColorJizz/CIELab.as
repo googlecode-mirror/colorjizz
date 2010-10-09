@@ -21,9 +21,9 @@ package ColorJizz
 		public function CIELab(l:Number, a:Number, b:Number)
 		{
 			this.toSelf = "toCIELab";
-			this.l = this.roundDec(l, 3);
-			this.a = this.roundDec(a, 3);
-			this.b = this.roundDec(b, 3);
+			this.l = l;// this.roundDec(l, 3);
+			this.a = a;//this.roundDec(a, 3);
+			this.b = b;//this.roundDec(b, 3);
 		}
 		override public function toHex():Hex
 		{

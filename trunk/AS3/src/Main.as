@@ -1,5 +1,6 @@
 ﻿package 
 {
+	import ColorJizz.CMYK;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
@@ -12,6 +13,7 @@
 		
 		public function Main():void 
 		{
+			trace(new CMYK(0,  1,  1, 0.2).toCMY().toYxy().toRGB().toHex());
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
