@@ -3,3 +3,8 @@ C:\Projects\colorjizz\C#\ColorJizz\bin\Release\ColorJizz.pdb
 C:\Projects\colorjizz\C#\ColorJizz\obj\Release\ResolveAssemblyReference.cache
 C:\Projects\colorjizz\C#\ColorJizz\obj\Release\ColorJizz.dll
 C:\Projects\colorjizz\C#\ColorJizz\obj\Release\ColorJizz.pdb
+D:\wamp\www\colorjizz\C#\ColorJizz\bin\Release\ColorJizz.dll
+D:\wamp\www\colorjizz\C#\ColorJizz\bin\Release\ColorJizz.pdb
+D:\wamp\www\colorjizz\C#\ColorJizz\obj\Release\ResolveAssemblyReference.cache
+D:\wamp\www\colorjizz\C#\ColorJizz\obj\Release\ColorJizz.dll
+D:\wamp\www\colorjizz\C#\ColorJizz\obj\Release\ColorJizz.pdb

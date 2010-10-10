@@ -14,7 +14,7 @@ function draw(colors){
 	$.each(colors, function (c){
 		$("<div />").css({
 			'width' : width,
-			'height' : 5,
+			'height' : 20,
 			'margin-right' : 1,
 			'background-color' : '#'+this,
 			'float' : 'left'
@@ -36,14 +36,6 @@ $(function (){
 	draw(green.sweetspot(true));
 	draw(green.greyscale());
 	draw(green.websafe());
-	console.log(green.toRGB().toHex());
-	console.log(green.toXYZ().toHex());
-	console.log(green.toYxy().toHex());
-	console.log(green.toCMY().toHex());
-	console.log(green.toCMYK().toHex());
-	console.log(green.toCIELab().toHex());
-	console.log(green.toCIELCh().toHex());
-	console.log(green.toHSV().toHex());
 });
 </script>
 </head>
