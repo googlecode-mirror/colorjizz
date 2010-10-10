@@ -184,7 +184,7 @@ namespace ColorJizz
         public AbstractColor greyscale()
         {
             RGB a = this.toRGB();
-            double ds = (Math.Max(Math.Max(a.r, a.g), a.b) + Math.Min(Math.Min(a.r, a.g), a.b)) / 2;
+            double ds = a.r * 0.3 + a.g * 0.59 + a.b * 0.11;
             int ds_i = Convert.ToInt32(ds);
             return new RGB(ds_i, ds_i, ds_i)[this.toSelf];
         }

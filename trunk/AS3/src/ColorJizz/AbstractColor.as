@@ -148,7 +148,7 @@ package ColorJizz
 		public function greyscale():AbstractColor
 		{
 			var a:RGB = this.toRGB();
-			var ds:Number = (Math.max(a.r,a.g,a.b) + Math.min(a.r,a.g,a.b))/2;
+			var ds:Number = a.r*0.3 + a.g*0.59+ a.b*0.11;
 			return new RGB(ds,ds,ds)[this.toSelf]();
 		}
 		public function hue(degreeModifier:Number):AbstractColor

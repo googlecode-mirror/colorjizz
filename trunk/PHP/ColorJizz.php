@@ -154,7 +154,7 @@ abstract class AbstractColor {
 
     public function greyscale() {
         $a = $this->toRGB();
-        $ds = (max($a->r, $a->g, $a->b) + min($a->r, $a->g, $a->b)) / 2;
+        $ds = $a->r*0.3 + $a->g*0.59+ $a->b*0.11;
         $t = new RGB($ds, $ds, $ds);
         return call_user_func(array($t, $this->toSelf));
     }
