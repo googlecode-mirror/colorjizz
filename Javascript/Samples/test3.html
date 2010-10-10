@@ -1,0 +1,54 @@
+<html>
+<head>
+<script type="text/javascript" src="../ColorJizz.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+var r = new Hex(0xCC0000);
+var g = new Hex(0x00CC00);
+var b = new Hex(0x0000CC);
+var y = new Hex(0xCCCC00);
+var p = new Hex(0xCC00CC);
+function createCanvas(image){
+  var myCanvas = document.createElement("canvas");
+  var myCanvasContext = myCanvas.getContext("2d");
+  var imgWidth=image.width;
+  var imgHeight=image.height;
+  myCanvas.width= imgWidth;
+  myCanvas.height = imgHeight;
+  myCanvasContext.drawImage(image,0,0);
+
+  var imageData = myCanvasContext.getImageData(0,0, imgWidth, imgHeight);
+
+	for (j=0; j<imageData.width; j++)
+	  {
+		for (i=0; i<imageData.height; i++)
+		{
+		   var index=(i*4)*imageData.width+(j*4);
+		   var red=imageData.data[index];
+		   var green=imageData.data[index+1];
+		   var blue=imageData.data[index+2];
+		   var alpha=imageData.data[index+3];
+		   var c = new RGB(red, green, blue).websafe();
+		   imageData.data[index]=c.r;
+		   imageData.data[index+1]=c.g;
+		   imageData.data[index+2]=c.b;
+		   imageData.data[index+3]=alpha;
+		   delete c;
+		 }
+	 }
+	 myCanvasContext.putImageData(imageData,0,0,0,0, imageData.width,   imageData.height);
+
+  $("body").append(myCanvas);
+}
+$(function (){
+	$('<img />').load(function (){
+		createCanvas(this);
+	}).attr("src", "flower.jpg");
+
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>
