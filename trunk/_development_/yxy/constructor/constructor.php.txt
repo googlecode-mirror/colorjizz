@@ -1,7 +1,0 @@
-public function Yxy($Y, $x, $y)
-{
-  $this->toSelf = "toYxy";
-  $this->Y = $Y;
-  $this->x = $x;
-  $this->y = $y;
-}

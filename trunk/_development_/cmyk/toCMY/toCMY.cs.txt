@@ -1,7 +1,0 @@
-public override CMY toCMY()
-{
-    double C = (this.c * (1 - this.k) + this.k);
-    double M = (this.m * (1 - this.k) + this.k);
-    double Y = (this.y * (1 - this.k) + this.k);
-    return new CMY(C, M, Y);
-}

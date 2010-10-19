@@ -1,4 +1,0 @@
-public function toHSV()
-{
-  return $this->toRGB()->toHSV();
-}

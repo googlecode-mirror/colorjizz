@@ -1,4 +1,0 @@
-override public function toCIELCh():CIELCh
-{
-  return this.toXYZ().toCIELCh();
-}

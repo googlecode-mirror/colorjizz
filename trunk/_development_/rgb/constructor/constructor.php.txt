@@ -1,7 +1,0 @@
-public function RGB($r, $g, $b)
-{
-  $this->toSelf = "toRGB";
-  $this->r = abs(min(255, max($r, 0)));
-  $this->g = abs(min(255, max($g, 0)));
-  $this->b = abs(min(255, max($b, 0)));
-}

@@ -1,8 +1,0 @@
-split : function(include){
-  if (include == null) include = false;
-  var rtn = [];
-  rtn.push(this.hue(150)[this.toSelf]());
-  if (include) rtn.push(this);
-  rtn.push(this.hue(-150)[this.toSelf]());
-  return rtn;
-}

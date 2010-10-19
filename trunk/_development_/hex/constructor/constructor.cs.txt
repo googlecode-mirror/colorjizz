@@ -1,5 +1,0 @@
-public Hex(uint hex)
-{
-  this.toSelf = ConversionMethod.toHex;
-  this.hex = hex;
-}

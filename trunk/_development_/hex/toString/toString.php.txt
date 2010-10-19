@@ -1,4 +1,0 @@
-public function toString()
-{
-  return strtoupper(dechex($this->hex));
-}

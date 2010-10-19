@@ -1,4 +1,0 @@
-override public function toCIELab():CIELab 
-{
-  return this.toRGB().toCIELab();
-}

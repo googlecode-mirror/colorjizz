@@ -1,3 +1,0 @@
-toString : function (){
-  return this.r+','+this.g+','+this.b;
-}

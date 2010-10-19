@@ -1,7 +1,0 @@
-public function Yxy(Y:Number, x:Number, y:Number) 
-{
-  this.toSelf = "toYxy";
-  this.Y = this.roundDec(Y, 3);
-  this.x = this.roundDec(x, 3);
-  this.y = this.roundDec(y, 3);
-}

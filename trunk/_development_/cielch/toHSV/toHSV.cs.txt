@@ -1,4 +1,0 @@
-public override HSV toHSV()
-{
-    return this.toCIELab().toHSV();
-}

@@ -1,8 +1,0 @@
-override public function toCIELab():CIELab 
-{
-  var l:Number = this.l;
-  var hradi:Number = this.h * (Math.PI/180);
-  var a:Number = Math.cos(hradi) * this.c;
-  var b:Number = Math.sin(hradi) * this.c;
-  return new CIELab(l,a,b);
-}

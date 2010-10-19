@@ -1,4 +1,0 @@
-public function toHex()
-{
-  return $this->toCIELab()->toHex();
-}

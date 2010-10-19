@@ -1,4 +1,0 @@
-public override HSV toHSV()
-{
-    return this.toRGB().toHSV();
-}

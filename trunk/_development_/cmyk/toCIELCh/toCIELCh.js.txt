@@ -1,3 +1,0 @@
-toCIELCh : function (){
-		return this.toCIELab().toCIELCh();
-	}

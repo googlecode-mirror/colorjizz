@@ -1,3 +1,0 @@
-toCMYK : function (){
-		return this;
-	}

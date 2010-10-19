@@ -1,4 +1,0 @@
-public function toString()
-{
-  return $this->r . ',' . $this->g . ',' . $this->b;
-}

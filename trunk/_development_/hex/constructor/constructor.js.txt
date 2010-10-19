@@ -1,3 +1,0 @@
-constructor : function (hex){
-  this.hex = hex;
-}

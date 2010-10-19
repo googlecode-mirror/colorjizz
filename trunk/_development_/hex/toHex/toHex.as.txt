@@ -1,4 +1,0 @@
-override public function toHex():Hex 
-{
-  return this;
-}

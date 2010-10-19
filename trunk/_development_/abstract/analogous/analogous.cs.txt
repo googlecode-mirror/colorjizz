@@ -1,8 +1,0 @@
-public List<AbstractColor> analogous(bool includeSelf)
-{
-    List<AbstractColor> rtn = new List<AbstractColor>();
-    rtn.Add(this.hue(-30)[this.toSelf]);
-    if (includeSelf) rtn.Add(this);
-    rtn.Add(this.hue(30)[this.toSelf]);
-    return rtn;
-}

@@ -1,7 +1,0 @@
-public function distance(AbstractColor $destinationColor)
-{
-  $a = $this->toCIELab();
-  $b = $destinationColor->toCIELab();
-
-  return sqrt(pow(($a->l - $b->l), 2) + pow(($a->a - $b->a), 2) + pow(($a->b - $b->b), 2));
-}

@@ -1,4 +1,0 @@
-override public function toCMYK():CMYK 
-{
-  return this;
-}

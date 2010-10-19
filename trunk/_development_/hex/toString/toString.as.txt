@@ -1,4 +1,0 @@
-public function toString ():String
-{
-  return this.hex.toString(16).toUpperCase();
-}

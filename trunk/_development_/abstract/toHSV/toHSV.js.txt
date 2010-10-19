@@ -1,1 +1,0 @@
-toHSV : function (){ this.warn(); }

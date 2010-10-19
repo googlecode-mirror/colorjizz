@@ -1,4 +1,0 @@
-public function toString():String
-{
-  return this.c+','+this.m+','+this.y;
-}

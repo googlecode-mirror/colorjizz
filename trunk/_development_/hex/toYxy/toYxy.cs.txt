@@ -1,4 +1,0 @@
-public override Yxy toYxy()
-{
-  return this.toRGB().toYxy();
-}
