@@ -13,7 +13,7 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class Hex extends AbstractColor
+	public final class Hex extends AbstractColor
 	{
 		public var hex:uint;
 		public function Hex(hex:uint)
@@ -27,10 +27,7 @@ package ColorJizz
 		}
 		override public function toRGB():RGB
 		{
-			var r:int = ((hex & 0xFF0000) >> 16);
-			var g:int = ((hex & 0x00FF00) >> 8);
-			var b:int = ((hex & 0x0000FF));
-			return new RGB(r,g,b);
+			return new RGB(((hex & 0xFF0000) >> 16), ((hex & 0xFF00) >> 8), ((hex & 0xFF)));
 		}
 		override public function toXYZ():XYZ
 		{
@@ -66,8 +63,7 @@ package ColorJizz
 		}
 		public static function fromString(str:String):Hex
 		{
-			if (str.substring(0, 1) == '#') str = str.substring(1, 7);
-			str = "0x" + str;
+			if (str.charAt(0) == '#') str = str.substring(1, 7);
 			return new Hex(uint(str));
 		}
 	}

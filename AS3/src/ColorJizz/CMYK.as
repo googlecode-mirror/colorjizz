@@ -13,7 +13,7 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class CMYK extends AbstractColor
+	public final class CMYK extends AbstractColor
 	{
 		public var c:Number;
 		public var m:Number;
@@ -49,10 +49,7 @@ package ColorJizz
 		}
 		override public function toCMY():CMY
 		{
-			var C:Number = ( this.c * ( 1 - this.k ) + this.k );
-			var M:Number = ( this.m * ( 1 - this.k ) + this.k );
-			var Y:Number = ( this.y * ( 1 - this.k ) + this.k );
-			return new CMY(C,M,Y);
+			return new CMY(( c * ( 1 - k ) + k ), ( m * ( 1 - k ) + k ), ( y * ( 1 - k ) + k ));
 		}
 		override public function toCMYK():CMYK
 		{

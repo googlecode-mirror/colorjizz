@@ -13,7 +13,7 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class XYZ extends AbstractColor
+	public final class XYZ extends AbstractColor
 	{
 		public var x:Number;
 		public var y:Number;
@@ -31,10 +31,10 @@ package ColorJizz
 		}
 		override public function toRGB():RGB
 		{
-			var var_X:Number = this.x / 100;
-			var var_Y:Number = this.y / 100;
-			var var_Z:Number = this.z / 100;
-
+			var var_X:Number = this.x * 0.01;
+			var var_Y:Number = this.y * 0.01;
+			var var_Z:Number = this.z * 0.01;
+			
 			var var_R:Number = var_X *  3.2406 + var_Y * -1.5372 + var_Z * -0.4986;
 			var var_G:Number = var_X * -0.9689 + var_Y *  1.8758 + var_Z *  0.0415;
 			var var_B:Number = var_X *  0.0557 + var_Y * -0.2040 + var_Z *  1.0570;
@@ -51,14 +51,11 @@ package ColorJizz
 			}
 			if (var_B > 0.0031308){
 				var_B = 1.055 * Math.pow(var_B,(1/2.4)) - 0.055;
-			}else {
+			} else {
 				var_B = 12.92 * var_B;
 			}
-			var r:Number = Math.round(var_R * 255);
-			var g:Number = Math.round(var_G * 255);
-			var b:Number = Math.round(var_B * 255);
-
-			return new RGB(r,g,b);
+			
+			return new RGB(Math.round(var_R * 255), Math.round(var_G * 255), Math.round(var_B * 255));
 		}
 		override public function toXYZ():XYZ
 		{
@@ -85,40 +82,30 @@ package ColorJizz
 		}
 		override public function toCIELab():CIELab
 		{
-			var Xn:Number =  95.047;
-			var Yn:Number = 100.000;
-			var Zn:Number = 108.883;
-
-			var x:Number = this.x / Xn;
-			var y:Number = this.y / Yn;
-			var z:Number = this.z / Zn;
+			var x:Number = this.x * 0.0105211106;
+			var y:Number = this.y * 0.01;
+			var z:Number = this.z * 0.00918417016;
 
 			if (x > 0.008856){
-				x = Math.pow(x, 1/3);
-			}else {
-				x = (7.787 * x) + (16 / 116);
+				x = Math.pow(x, 0.3333333); //1/3
+			} else {
+				x = (7.787 * x) + 0.137931034;//(16 / 116);
 			}
 			if (y > 0.008856){
-				y = Math.pow(y, 1 / 3);
+				y = Math.pow(y, 0.3333333); //1/3
 			}else {
-				y = (7.787 * y) + (16 / 116);
+				y = (7.787 * y) + 0.137931034;//(16 / 116);
 			}
 			if (z > 0.008856){
-				z = Math.pow(z, 1 / 3);
+				z = Math.pow(z, 0.3333333); //1/3
 			}else {
-				z = (7.787 * z) + (16 / 116);
+				z = (7.787 * z) + 0.137931034;//(16 / 116);
 			}
-			var l:Number;
-			if (y>0.008856){
-				l = (116 * y) - 16;
-			}else {
-				l = 903.3*y;
-			}
-			var a:Number = 500 * (x - y);
-			var b:Number = 200 * (y - z);
-
-			return new CIELab(l, a, b);
+			
+			if (y > 0.008856) return new CIELab((116 * y) - 16, 500 * (x - y), 200 * (y - z));
+			return new CIELab(903.3 * y, 500 * (x - y), 200 * (y - z));
 		}
+		
 		override public function toCIELCh():CIELCh
 		{
 			return this.toCIELab().toCIELCh();

@@ -13,7 +13,7 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class CMY extends AbstractColor
+	public final class CMY extends AbstractColor
 	{
 		public var c:Number;
 		public var m:Number;
@@ -31,10 +31,7 @@ package ColorJizz
 		}
 		override public function toRGB():RGB
 		{
-			var R:int = (int)(( 1 - this.c ) * 255);
-			var G:int = (int)(( 1 - this.m ) * 255);
-			var B:int = (int)(( 1 - this.y ) * 255);
-			return new RGB(R,G,B);
+			return new RGB(int(( 1 - this.c ) * 255),int(( 1 - this.m ) * 255),int(( 1 - this.y ) * 255));
 		}
 		override public function toXYZ():XYZ
 		{
@@ -61,20 +58,8 @@ package ColorJizz
 			if ( C < var_K )   var_K = C;
 			if ( M < var_K )   var_K = M;
 			if ( Y < var_K )   var_K = Y;
-			if ( var_K == 1 ) {
-				C = 0;
-				M = 0;
-				Y = 0;
-			}
-			else {
-				C = ( C - var_K ) / ( 1 - var_K );
-				M = ( M - var_K ) / ( 1 - var_K );
-				Y = ( Y - var_K ) / ( 1 - var_K );
-			}
-
-			var K:Number = var_K;
-
-			return new CMYK(C,M,Y,K);
+			if ( var_K == 1 ) return new CMYK(0,0,0,1);
+			return new CMYK(( C - var_K ) / ( 1 - var_K ), ( M - var_K ) / ( 1 - var_K ), ( Y - var_K ) / ( 1 - var_K ), var_K);
 		}
 		override public function toCIELab():CIELab
 		{

@@ -35,10 +35,7 @@ package ColorJizz
 		}
 		override public function toXYZ():XYZ
 		{
-			var X:Number = this.x * ( this.Y / this.y );
-			var Y:Number = this.Y;
-			var Z:Number = ( 1 - this.x - this.y ) * ( this.Y / this.y );
-			return new XYZ(X, Y, Z);
+			return new XYZ(x * ( Y / y ), Y, ( 1 - x - y ) * ( Y / y ));
 		}
 		override public function toYxy():Yxy
 		{

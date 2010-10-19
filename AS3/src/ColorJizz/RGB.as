@@ -13,17 +13,16 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class RGB extends AbstractColor
+	public final class RGB extends AbstractColor
 	{
 		public var r:int;
 		public var g:int;
 		public var b:int;
-		public function RGB(r:int, g:int, b:int)
-		{
+		public function RGB(r:int, g:int, b:int) {
 			this.toSelf = "toRGB";
-			this.r = Math.min(255,Math.max(r,0));
-			this.g = Math.min(255,Math.max(g,0));
-			this.b = Math.min(255,Math.max(b,0));
+			this.r = (r < 0) ? 0 : (r > 0xff) ? 0xff : r;
+			this.g = (g < 0) ? 0 : (g > 0xff) ? 0xff : g;
+			this.b = (b < 0) ? 0 : (b > 0xff) ? 0xff : b;
 		}
 		override public function toHex():Hex {
 			return new Hex(this.r << 16 | this.g << 8 | this.b);
@@ -73,17 +72,17 @@ package ColorJizz
 			var h:Number, s:Number, v:Number;
 			var min:Number, max:Number, delta:Number;
 
-			min = Math.min( r, g, b );
-			max = Math.max( r, g, b );
+			//min = Math.min( r, g, b );
+			min = (r < g && r < b) ? r : (g < r && g < b) ? g : b;
+			//max = Math.max( r, g, b );
+			max = (r > g && r > b) ? r : (g > r && g > b) ? g : b;
 
 			v = max;
 			delta = max - min;
 			if(max != 0){
 				s = delta / max;
-			}else {
-				s = 0;
-				h = -1;
-				return new HSV(h, s, v);
+			} else {
+				return new HSV(-1, 0, v);
 			}
 			if (r == max) {
 				h = (g - b) / delta;
@@ -93,18 +92,13 @@ package ColorJizz
 				h = 4 + (r - g) / delta;
 			}
 			h *= 60;
-			if(h < 0){
-				h += 360;
-			}
-
+			if(h < 0) h += 360;
+			
 			return new HSV(h, s*100, v*100);
 		}
 		override public function toCMY():CMY
 		{
-			var C:Number = 1 - ( this.r / 255 );
-			var M:Number = 1 - ( this.g / 255 );
-			var Y:Number = 1 - ( this.b / 255 );
-			return new CMY(C,M,Y);
+			return new CMY(1 - ( this.r / 255 ), 1 - ( this.g / 255 ), 1 - ( this.b / 255 ));
 		}
 		override public function toCMYK():CMYK
 		{
