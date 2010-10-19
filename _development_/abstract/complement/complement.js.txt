@@ -1,8 +1,0 @@
-complement : function (include){
-  if (include == null) include = false;
-  var rtn = [
-    this.hue(180)[this.toSelf]()
-  ];
-  if (include) rtn.unshift(this);
-  return rtn;
-}

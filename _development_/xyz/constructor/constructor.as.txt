@@ -1,7 +1,0 @@
-public function XYZ(x:Number, y:Number, z:Number) 
-{
-  this.toSelf = "toXYZ";
-  this.x = this.roundDec(x, 3);
-  this.y = this.roundDec(y, 3);
-  this.z = this.roundDec(z, 3);
-}

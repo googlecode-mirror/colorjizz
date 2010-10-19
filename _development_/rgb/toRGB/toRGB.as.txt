@@ -1,3 +1,0 @@
-override public function toRGB():RGB {
-  return this;            
-}

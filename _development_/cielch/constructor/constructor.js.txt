@@ -1,5 +1,0 @@
-constructor : function (l,c,h){
-		this.l = l;
-		this.c = c;
-		this.h = h<360?h:(h-360);
-	}

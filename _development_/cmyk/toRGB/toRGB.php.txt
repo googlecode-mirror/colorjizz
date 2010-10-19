@@ -1,4 +1,0 @@
-public function toRGB()
-{
-  return $this->toCMY()->toRGB();
-}

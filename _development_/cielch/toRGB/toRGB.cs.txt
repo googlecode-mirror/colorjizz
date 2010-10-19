@@ -1,4 +1,0 @@
-public override RGB toRGB()
-{
-    return this.toCIELab().toRGB();
-}

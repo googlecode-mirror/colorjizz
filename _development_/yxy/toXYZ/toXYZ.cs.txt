@@ -1,7 +1,0 @@
-public override XYZ toXYZ()
-{
-  double X = this.x * (this.Y / this.y);
-  double Y = this.Y;
-  double Z = (1 - this.x - this.y) * (this.Y / this.y);
-  return new XYZ(X, Y, Z);
-}

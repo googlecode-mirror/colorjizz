@@ -1,8 +1,0 @@
-public override CIELab toCIELab()
-{
-    double l = this.l;
-    double hradi = this.h * (Math.PI / 180);
-    double a = Math.Cos(hradi) * this.c;
-    double b = Math.Sin(hradi) * this.c;
-    return new CIELab(l, a, b);
-}

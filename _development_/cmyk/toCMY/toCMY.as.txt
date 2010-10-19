@@ -1,7 +1,0 @@
-override public function toCMY():CMY 
-{
-  var C:Number = ( this.c * ( 1 - this.k ) + this.k );
-  var M:Number = ( this.m * ( 1 - this.k ) + this.k );
-  var Y:Number = ( this.y * ( 1 - this.k ) + this.k );
-  return new CMY(C,M,Y);
-}

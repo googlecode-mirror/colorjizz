@@ -1,3 +1,0 @@
-toHex : function (){
-		return this.toCIELab().toHex();
-	}

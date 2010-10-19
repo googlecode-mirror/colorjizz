@@ -1,6 +1,0 @@
-public function brightness($brightnessModifier)
-{
-  $a = $this->toCIELab();
-  $a->l += $brightnessModifier;
-  return call_user_func(array($a, $this->toSelf));
-}

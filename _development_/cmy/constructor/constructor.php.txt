@@ -1,7 +1,0 @@
-public function CMY($c, $m, $y)
-{
-  $this->toSelf = "toCMY";
-  $this->c = $c;
-  $this->m = $m;
-  $this->y = $y;
-}

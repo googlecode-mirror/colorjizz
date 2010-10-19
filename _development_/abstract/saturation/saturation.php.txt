@@ -1,7 +1,0 @@
-public function saturation($satModifier)
-{
-  $a = $this->toHSV();
-  $a->s += ($satModifier / 100);
-  $a->s = min(1, max(0, $a->s));
-  return call_user_func(array($a, $this->toSelf));
-}

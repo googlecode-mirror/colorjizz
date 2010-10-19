@@ -1,5 +1,0 @@
-constructor : function (h,s,v){
-  this.h = h;
-  this.s = s;
-  this.v = v;
-}

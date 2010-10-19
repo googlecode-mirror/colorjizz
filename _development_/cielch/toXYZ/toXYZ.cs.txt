@@ -1,4 +1,0 @@
-public override XYZ toXYZ()
-{
-    return this.toCIELab().toXYZ();
-}

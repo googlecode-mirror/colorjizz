@@ -1,3 +1,0 @@
-toCIELab : function (){
-  return this.toXYZ().toCIELab();
-}

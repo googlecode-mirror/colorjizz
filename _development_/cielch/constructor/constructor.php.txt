@@ -1,7 +1,0 @@
-public function CIELCh($l, $c, $h)
-{
-  $this->toSelf = "toCIELCh";
-  $this->l = $l;
-  $this->c = $c;
-  $this->h = $h < 360 ? $h : ($h - 360);
-}

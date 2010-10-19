@@ -1,1 +1,0 @@
-public function toRGB():RGB { return null;  }

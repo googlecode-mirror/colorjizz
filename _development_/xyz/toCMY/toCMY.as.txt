@@ -1,4 +1,0 @@
-override public function toCMY():CMY 
-{
-  return this.toRGB().toCMY();
-}

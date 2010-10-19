@@ -1,1 +1,0 @@
-public function toHex():Hex { return null;  }

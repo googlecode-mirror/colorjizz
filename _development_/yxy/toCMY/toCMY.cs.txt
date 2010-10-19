@@ -1,4 +1,0 @@
-public override CMY toCMY()
-{
-  return this.toXYZ().toCMY();
-}

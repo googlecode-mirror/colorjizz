@@ -1,8 +1,0 @@
-public function toCIELab()
-{
-  $l = $this->l;
-  $hradi = $this->h * (pi() / 180);
-  $a = cos($hradi) * $this->c;
-  $b = sin($hradi) * $this->c;
-  return new CIELab($l, $a, $b);
-}

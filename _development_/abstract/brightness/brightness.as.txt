@@ -1,6 +1,0 @@
-public function brightness(brightnessModifier:Number):AbstractColor
-{
-  var a:CIELab = this.toCIELab();
-  a.l += brightnessModifier;
-  return a[this.toSelf]();
-}

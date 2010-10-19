@@ -1,5 +1,0 @@
-brightness : function (brightnessModifier){
-  var a = this.toCIELab();
-  a.l += brightnessModifier;
-  return a[this.toSelf]();
-}

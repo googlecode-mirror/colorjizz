@@ -1,6 +1,0 @@
-public function distance(destinationColor:AbstractColor):Number {
-  var a:CIELab = this.toCIELab();
-  var b:CIELab = destinationColor.toCIELab();
-
-  return Math.sqrt(Math.pow((a.l - b.l),2)+Math.pow((a.a - b.a),2)+Math.pow((a.b-b.b),2));
-}

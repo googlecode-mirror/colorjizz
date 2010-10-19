@@ -1,3 +1,0 @@
-toRGB : function (){
-		return this.toCIELab().toRGB();
-	}

@@ -1,3 +1,0 @@
-toYxy : function (){
-  return this.toRGB().toYxy();
-}

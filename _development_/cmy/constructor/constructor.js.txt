@@ -1,5 +1,0 @@
-constructor : function (c,m,y){
-  this.c = c;
-  this.m = m;
-  this.y = y;
-}

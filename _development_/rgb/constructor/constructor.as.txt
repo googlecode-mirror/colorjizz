@@ -1,7 +1,0 @@
-public function RGB(r:int, g:int, b:int) 
-{
-  this.toSelf = "toRGB";
-  this.r = Math.min(255,Math.max(r,0));
-  this.g = Math.min(255,Math.max(g,0));
-  this.b = Math.min(255,Math.max(b,0));
-}
