@@ -13,7 +13,7 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class CIELCh extends AbstractColor
+	public final class CIELCh extends AbstractColor
 	{
 		public var l:Number;
 		public var c:Number;
@@ -55,8 +55,7 @@ package ColorJizz
 		}
 		override public function toCIELab():CIELab
 		{
-			var l:Number = this.l;
-			var hradi:Number = this.h * (Math.PI/180);
+			var hradi:Number = this.h * 0.0174532925;//(Math.PI/180);
 			var a:Number = Math.cos(hradi) * this.c;
 			var b:Number = Math.sin(hradi) * this.c;
 			return new CIELab(l,a,b);

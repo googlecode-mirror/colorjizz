@@ -13,7 +13,7 @@ package ColorJizz
 	 * ...
 	 * @author Mikee
 	 */
-	public class HSV extends AbstractColor
+	public final class HSV extends AbstractColor
 	{
 		public var h:Number;
 		public var s:Number;
@@ -31,9 +31,9 @@ package ColorJizz
 		}
 		override public function toRGB():RGB
 		{
-			var h:Number = this.h / 360;
-			var s:Number = this.s / 100;
-			var v:Number = this.v / 100;
+			var h:Number = this.h * 0.00277777778;
+			var s:Number = this.s * 0.01;
+			var v:Number = this.v * 0.01;
 			var r:Number;
 			var g:Number;
 			var b:Number;
