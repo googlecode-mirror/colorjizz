@@ -233,7 +233,11 @@ class Hex extends AbstractColor {
     }
 
     public function toString() {
-        return strtoupper(dechex($this->hex));
+        $rgb = $this->toRGB();
+        $hex = str_pad(dechex($rgb->r), 2, "0", STR_PAD_LEFT);
+        $hex.= str_pad(dechex($rgb->g), 2, "0", STR_PAD_LEFT);
+        $hex.= str_pad(dechex($rgb->b), 2, "0", STR_PAD_LEFT);
+        return strtoupper($hex);
     }
 
     public function fromString($str) {
