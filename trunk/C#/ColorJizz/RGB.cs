@@ -83,6 +83,10 @@ namespace ColorJizz
 
             v = max;
             delta = max - min;
+            if (delta == 0)
+            {
+               return new HSV(0, 0, v * 100);
+            }
             if (max != 0)
             {
                 s = delta / max;
