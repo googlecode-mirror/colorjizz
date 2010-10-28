@@ -3,8 +3,8 @@
 require_once("../ColorJizz.php");
 
 
-$h = new Hex(0xCC0000);
+$h = new RGB(254, 254, 254);
 
-print_r($h->greyscale()->toString());
+print_r($h->toHSV()->toRGB());
 
 ?>
